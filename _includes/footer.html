@@ -1,7 +1,7 @@
 <footer class="center">
   <div class="footer-content">
     <div class="footer-each">
-      <!-- This can be used for other purposes if needed -->
+      <!-- Placeholder for other content if needed -->
     </div>
     <div class="footer-each">
       <h5><a href="mailto:hzaid@gradcenter.cuny.edu">hzaid@gradcenter.cuny.edu</a></h5>
@@ -29,11 +29,10 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap; /* Allows wrapping if needed */
-  gap: 20px; /* Adds spacing between items */
 }
 
 .footer-each {
-  margin: 0;
+  margin: 0 15px; /* Default spacing between items */
 }
 
 .footer-each a {
@@ -48,12 +47,13 @@ footer {
   text-decoration: underline; /* Underline on hover */
 }
 
-.social-links h5 {
-  margin: 0; /* Removes margin from h5 within social-links */
+.social-links {
+  display: flex;
+  gap: 15px; /* Adds consistent spacing between social links */
 }
 
-.social-links a {
-  margin: 0 10px; /* Adds spacing between social links */
+.social-links h5 {
+  margin: 0; /* Removes margin from h5 within social-links */
 }
 </style>
 
