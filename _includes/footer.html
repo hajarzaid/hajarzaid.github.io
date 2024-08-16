@@ -1,103 +1,80 @@
-<footer class="center">
-  <div class="desktop-footer">
-    <div class="footer-each">
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website</title>
+  <style>
+    footer {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    footer .desktop-footer {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 45.33563em;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    footer .desktop-footer .footer-each {
+        margin-right: 4%;
+        text-align: center;
+    }
+
+    footer .desktop-footer .footer-each:last-child {
+        margin-right: 0;
+    }
+
+    footer .footer-each a {
+        text-decoration: none;
+        background-image: none;
+        color: #000;
+        font-weight: 300;
+        word-wrap: normal;
+    }
+
+    footer .footer-each a:active, footer .footer-each a:hover {
+        outline-width: 0;
+    }
+
+    .contact-a span:before, .contact-a-mob span:before, .footer-each span:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 2px solid #000;
+        transition: .4s;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+
+    .contact-a a:hover span:before, .contact-a-mob a:hover span:before, .footer-each a:hover span:before {
+        content: '';
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+  </style>
+</head>
+<body>
+  <footer class="center">
+    <div class="desktop-footer">
+      <div class="footer-each">
+      </div>
+      <div class="footer-each">
+        <h5><a href="mailto:hzaid@gradcenter.cuny.edu"><span>hzaid</span><br><span>@gradcenter.cuny.edu</span></a></h5>
+      </div>
+      <div class="footer-each">
+        <h5><a href="mailto:zaidhajar1@gmail.com"><span>zaidhajar1</span><br><span>@gmail.com</span></a></h5>
+      </div>
+      <div class="footer-each">
+        <h5><a href="https://www.linkedin.com/in/hajar-zaid/" target="_blank" alt="LinkedIn"><span>LinkedIn</span></a></h5>
+        <h5><a href="https://github.com/hajarzaid" target="_blank" alt="Github"><span>Github</span></a></h5>
+      </div>
     </div>
-   
-    <div class="footer-each">
-      <h5><a href="mailto:hzaid@gradcenter.cuny.edu"><span>jbelotti</span><br><span>@zendesk</span><br><span>.com</span></a></h5>
-    </div>
-    <div class="footer-each">
-      <h5><a href="mailto:zaidhajar1@gmail.com"><span>jonathon.</span><br><span>bel.</span><br><span>melbourne</span><br><span>@gmail.com</span></a></h5>
-    </div>
-    <div class="footer-each">
-      <h5><a href="https://www.linkedin.com/in/hajar-zaid/" target="_blank" alt="LinkedIn"><span>LinkedIn</span></a></h5>
-      <h5><a href="https://github.com/hajarzaid" target="_blank" alt="Github"><span>Github</span></a></h5>
-    </div>
-  </div>
-</footer>
-
-<style>
-
-footer .desktop-footer {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.client-each, .footer-bar, .section, footer .desktop-footer {
-    max-width: 45.33563em;
-}
-
-footer {
-    margin-bottom: 30px;
-    visibility: visible;
-    -webkit-transform: translateY(0) scale(1);
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
-    transition: transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
-}
-</style>
-
-<style>
-.home .contact-overlay .contact-a:nth-child(6n+1), .icon-and-text:nth-child(2n+1), footer .desktop-footer .footer-each:nth-child(6n+1) {
-    clear: left;
-}
-footer .desktop-footer .footer-each {
-    float: left;
-    display: block;
-    margin-right: 4%;
-    width: 14.70196%;
-}
-
-footer .desktop-footer .footer-each:first-child {
-    margin-left: 4%;
-}
-
-footer .footer-each a {
-  text-decoration: none;
-  background-image: none;
-  color: #000;
-  font-weight: 300;
-  word-wrap: normal;
-}
-
-footer .footer-each a:active, footer .footer-each a:hover {
-    outline-width: 0;
-}
-
-.founder-each h2, .group-pic, .header-title, .home .contact-overlay .contact-a, .section h1, .section h2, .section h3, .section p, .team small, .title-div, body .home .contact-overlay .contact-a-mob, footer .desktop-footer .footer-each, footer .mobile-footer, footer .mobile-footer .footer-each, nav li {
-    text-align: center;
-}
-
-.contact-a, .contact-a span, .contact-a-mob span, .footer-each span, footer, sub, sup {
-    position: relative;
-}
-
-.contact-a span:before, .contact-a-mob span:before, .footer-each span:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 2px solid #000;
-    transition: .4s;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-}
-
-.contact-a a:hover span:before, .contact-a-mob a:hover span:before, .footer-each a:hover span:before {
-    content: '';
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-}
-
-</style>
-
-{% if site.enable_anchorjs %}<!-- AnchorJS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
-<script>
-    anchors.options.visible = 'always';
-    anchors.add('article h2, article h3, article h5, article h5, article h6');
-</script>{% endif %}
+  </footer>
+</body>
+</html>
