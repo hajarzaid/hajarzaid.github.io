@@ -5,57 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Website</title>
   <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
     footer {
         text-align: center;
-        margin-bottom: 30px;
+        margin: 30px auto;
     }
 
     footer .desktop-footer {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 45.33563em;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        max-width: 100%;
     }
 
     footer .desktop-footer .footer-each {
-        margin-right: 4%;
+        margin: 0 20px;
         text-align: center;
-    }
-
-    footer .desktop-footer .footer-each:last-child {
-        margin-right: 0;
+        display: inline-block;
     }
 
     footer .footer-each a {
         text-decoration: none;
-        background-image: none;
         color: #000;
         font-weight: 300;
         word-wrap: normal;
+        display: block;
+        white-space: nowrap;
+        position: relative;
     }
 
-    footer .footer-each a:active, footer .footer-each a:hover {
-        outline-width: 0;
+    footer .footer-each a span {
+        display: block;
     }
 
-    .contact-a span:before, .contact-a-mob span:before, .footer-each span:before {
+    footer .footer-each a::after {
         content: '';
         position: absolute;
-        bottom: 0;
         left: 0;
+        bottom: -2px;
         width: 100%;
-        border-bottom: 2px solid #000;
-        transition: .4s;
-        -webkit-transform: scaleX(1);
+        height: 2px;
+        background-color: #000;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    footer .footer-each a:hover::after {
         transform: scaleX(1);
     }
 
-    .contact-a a:hover span:before, .contact-a-mob a:hover span:before, .footer-each a:hover span:before {
-        content: '';
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
+    footer .footer-each a:active {
+        color: #555;
     }
   </style>
 </head>
@@ -63,12 +68,13 @@
   <footer class="center">
     <div class="desktop-footer">
       <div class="footer-each">
+        <!-- Empty space for potential future content -->
       </div>
       <div class="footer-each">
-        <h5><a href="mailto:hzaid@gradcenter.cuny.edu"><span>hzaid</span><br><span>@gradcenter.cuny.edu</span></a></h5>
+        <h5><a href="mailto:hzaid@gradcenter.cuny.edu"><span>hzaid@gradcenter.cuny.edu</span></a></h5>
       </div>
       <div class="footer-each">
-        <h5><a href="mailto:zaidhajar1@gmail.com"><span>zaidhajar1</span><br><span>@gmail.com</span></a></h5>
+        <h5><a href="mailto:zaidhajar1@gmail.com"><span>zaidhajar1@gmail.com</span></a></h5>
       </div>
       <div class="footer-each">
         <h5><a href="https://www.linkedin.com/in/hajar-zaid/" target="_blank" alt="LinkedIn"><span>LinkedIn</span></a></h5>
@@ -78,3 +84,4 @@
   </footer>
 </body>
 </html>
+
