@@ -1,8 +1,8 @@
 <header class="site-header px-responsive">
-  <div class="mt2 wrap">
-      <nav class="">
-        {% include navigation.html %}
-      </nav>
+  <div class="header-container">
+    <nav>
+      {% include navigation.html %}
+    </nav>
   </div>
 </header>
 
@@ -17,6 +17,66 @@
   <span class="home-text">Home</span>
 </div>
 
+<style>
+/* Center header content */
+.site-header {
+  text-align: center;
+  padding: 20px; /* Adjust padding as needed */
+  background-color: #f8f9fa; /* Optional background color */
+}
+
+.header-container {
+  display: inline-block;
+  text-align: left; /* Align navigation to the left within the centered container */
+}
+
+.menu-btn, .home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto; /* Center horizontally with auto margins */
+  cursor: pointer; /* Optional: cursor change on hover */
+}
+
+.menu-btn {
+  position: relative;
+}
+
+.menu-line {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px 0;
+  transition: transform 0.3s; /* Smooth transition for the rotation effect */
+}
+
+.menu-text {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+  transition: opacity 0.3s; /* Smooth transition for opacity change */
+}
+
+.home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.home-text {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* Ensure main-menu element is properly aligned */
+#main-menu {
+  transition: transform 0.3s; /* Smooth transition for menu movement */
+}
+</style>
+
 <script>
 $( ".menu-btn" ).click(function() {
     if (  $( ".menu-text" ).css( "opacity" ) == "0" ){
@@ -30,3 +90,4 @@ $( ".menu-btn" ).click(function() {
     }
 });
 </script>
+
