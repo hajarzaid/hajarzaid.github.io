@@ -87,14 +87,7 @@ text:
     minute_read:    'minute read'
     related_posts:  'Related Posts'
   index:
-    coming_soon: Hello, my name is Hajar Zaid, and I’m a master's student in Data Science at the CUNY Graduate Center, taking courses in both the mathematics and computer science departments. My research interests span randomized numerical algorithms, random matrix theory, numerical optimization, and the theoretical foundations of deep learning. I am particularly fascinated by the behavior of deep learning models in high-dimensional spaces.
-
-I am currently a research intern at the Icahn School of Medicine, working under the mentorship of Evan Schaffer, where I study random matrices in the context of neural representations. Additionally, I am collaborating with Tyler Chen’s group at NYU Courant Institute of Mathematical Sciences, focusing on iterative methods for solving linear systems. Next semester, I will begin a year-long capstone project on randomized numerical algorithms under the supervision of Victor Pan.
-
-I am seeking industry-based research opportunities for the upcoming summer to gain hands-on experience with real-world applications. My goal is to focus my PhD on research that is not only valuable to academia but also has practical relevance to industry. By identifying real-world challenges, I aim to ensure my work contributes meaningfully to both fields.
-
-
-
+    coming_soon: 
 
 
 
