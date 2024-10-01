@@ -5,6 +5,6 @@ I am currently a research intern at the Icahn School of Medicine, working under 
 
 I am in the process of continously learning. This page will be updated througout the year as I make progress in my studies. 
 
-Right now I am studying [convex optimization](https://web.stanford.edu/~boyd/cvxbook/), [Randomized Numerical Linear Algebra/Matrix Computations](https://arxiv.org/pdf/1608.04481), and Introduction to Neural Networks @ the Graduate Center. Lastly, I am an adjunct lecturer at Baruch College in the Mathematics department. 
+Right now I am studying [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/), [Randomized Numerical Linear Algebra/Matrix Computations](https://arxiv.org/pdf/1608.04481), and Introduction to Neural Networks @ the Graduate Center. Lastly, I am an adjunct lecturer at Baruch College in the Mathematics department. 
 
 I hope to eventually pursue a PhD in Applied Math. 
