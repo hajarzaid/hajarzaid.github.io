@@ -1,6 +1,3 @@
----
-title: Convex Optimization Notes
----
 
 # Convex Optimization Notes (Fall 2024)
 
