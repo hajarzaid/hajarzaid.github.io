@@ -8,6 +8,7 @@ I am continously learning and gaining more experience. This page will be updated
 As of now, I am studying [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/), [Randomized Numerical Linear Algebra/Matrix Computations](https://arxiv.org/pdf/1608.04481), and Introduction to Neural Networks @ the Graduate Center. Lastly, I am an adjunct lecturer at Baruch College in the Mathematics department. 
 
 I hope to eventually pursue a PhD in Applied Math. 
+
 ---
 
 - [Fall 2024: Convex Optimization Notes](./convex_optimization.md)
