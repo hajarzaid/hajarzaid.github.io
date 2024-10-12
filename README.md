@@ -10,4 +10,4 @@ As of now, I am studying [Convex Optimization](https://web.stanford.edu/~boyd/cv
 I hope to eventually pursue a PhD in Applied Math. 
 
 
-- [Convex Optimization Notes](./convex_optimization.md)
+- [Fall 2024: Convex Optimization Notes](./convex_optimization.md)
