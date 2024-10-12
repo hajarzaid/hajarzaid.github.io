@@ -1,5 +1,5 @@
 
-# Convex Optimization Notes (Fall 2024)
+# Convex Optimization Notes
 
 Notes for Fall 2024 Convex optimization course (for my classmates and for whomever finds these beneficial!) 
 I will update the previous ones soon!
