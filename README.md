@@ -6,8 +6,9 @@ I am currently visiting student researcher at the Icahn School of Medicine, work
 
 I am continously learning and gaining more experience. This page will be updated througout the years as I make progress in my studies. 
 
-As of now, I am studying [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/), [Randomized Numerical Linear Algebra/Matrix Computations](https://arxiv.org/pdf/1608.04481), and Introduction to Neural Networks @ the Graduate Center. Lastly, I am an adjunct lecturer in the Mathematics department at Baruch College and tutor advanced topics in matrix algebra, analysis, and advanced calculus at Hunter College. 
+As of now, I am studying [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/), [Randomized Numerical Linear Algebra/Matrix Computations](https://arxiv.org/pdf/1608.04481), and Introduction to Neural Networks @ the Graduate Center. Lastly, I am an adjunct lecturer in the Mathematics department at Baruch College. I also tutor advanced topics in matrix algebra, analysis, and advanced calculus at Hunter College. 
 
+Email: hzaid@gradcenter.cuny.edu
 
 ---
 
