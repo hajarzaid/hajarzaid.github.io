@@ -1,8 +1,8 @@
 
 # Convex Optimization Notes
 
-Notes for Fall 2024 Convex optimization course (for my classmates and for whomever finds these beneficial!) 
-I will update the previous ones soon.
+Notes for Fall 2024 Convex and Non-smooth optimization course taught at the graduate center (for my classmates and for whomever finds these beneficial!) 
+I will update the previous first few ones soon.
 
 1. Lecture 1: Introduction, Affine and Convex Sets, Separating Hyperplane Theorem, Supporting Hyperplane Theorem
 2. Lecture 2: Dual cones, Convex functions, the Conjugate Function, Intro to CVX software (disciplined convex progamming).
