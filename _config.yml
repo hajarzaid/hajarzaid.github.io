@@ -2,3 +2,6 @@ title: Hajar Zaid
 description: 
 theme: just-the-docs
 
+nav_order:
+  - index.md   # Or "home.md" if you created it as a separate page
+  - teaching.md
