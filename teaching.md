@@ -1,6 +1,8 @@
 ---
 title: Teaching
 permalink: /teaching/
+layout: default
+
 ---
 ## Teaching
 
