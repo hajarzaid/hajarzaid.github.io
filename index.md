@@ -2,34 +2,19 @@
 title: Home
 layout: home
 ---
-Hajar Zaid
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+Hello, my name is Hajar Zaid. I am a Master's student at CUNY Graduate Center studying Data Science within the Computer Science department. I received my Bachelor's from Queens College in Mathematics with a concentration in Pure Mathematics. My research interests lie at the intersection of deep learning, optimization, and theoretical neuroscience. My goal is to explore, experience, and experiment with divergent ideas that broaden my perspective on research questions and their applications.
 
-More specifically, the created site:
+I am driven by the fact that many mathematical theories reappear across disciplines, often disguised under different names and that advancements do not always emerge within a single discipline. These theories are highly studied and well understood within mathematics, yet their applications in other fields are not always recognized (see [The Unreasonable Effectiveness of Mathematics in the Natural Sciences](https://www.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf). The job of a mathematician is to abstract and uncover these underlying structures, revealing deep connections between seemingly unrelated areas. The problem is that mathematicians have studied structures and concepts in isolation from their applications, but I believe bridging this gap is essential for meaningful progress.
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+Here are just a few reasons why you should care:
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+1. Recognizing fundamental mathematical structures across disciplines provides a more profound comprehension of complex systems. 
+2. Abstracting problems mathematically allows solutions to apply across different domains, reducing redundancy in problem-solving.
+3. Using well-established mathematical frameworks leads to more robust, interpretable, and theoretically grounded models.
+4. Theoreticaly grounded models lead to better extrapolation and reasoning beyond observed data.
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
 
-To get started with creating a site, simply:
-
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
-
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
 
 ----
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
-
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
