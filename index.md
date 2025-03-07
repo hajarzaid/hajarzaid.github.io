@@ -7,9 +7,9 @@ Hello, my name is Hajar Zaid. I am a Master's student in Data Science at CUNY Gr
 Some of my current interests are: 
 
 * Random Matrix Theory
-* Theory of Deep Learning
+* Theory of Deep Learning (specifically in the area of High-Dimensional Learning)
 * Computational and Theoretical Neuroscience
-* Geometry of Neural Representations
+* Geometry of Neural Representations  
 * Brain-Computer Interfaces
 * Numerical Linear Algebra and Spectral Theory
 * Nonlinear Dimensionality Reduction & Manifold Learning
