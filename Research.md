@@ -6,7 +6,7 @@ layout: home
 ---
 ### Icahn School of Medicine, Friedman Brain Institute  
 **Student Researcher** | *July 2024 - Present*  
-Researching random matrix theory, concentration of measure, and optimization techniques to model memory representational drift in the olfactory system. Developed Python models to study neural dynamics and memory evolution, applying statistical methods to analyze complex data. Aiming to enhance understanding of sensory processing, memory consolidation, and neural plasticity with applications in neuroscience and AI.
+Exploring memory representational drift in the olfactory system using random matrix theory, concentration of measure, and optimization techniques under Dr. Evan Schaffer. Developed theoretical models to simulate neural dynamics and the evolution of memory representations over time. Applied advanced mathematical and statistical methods to analyze high-dimensional systems, aiming to deepen the understanding of sensory processing, memory consolidation, and neural plasticity, with potential applications in both neuroscience and AI.
 
 ### New York University, Courant Institute of Mathematical Sciences  
 **Student Researcher** | *May 2024 - Jan 2025*  
