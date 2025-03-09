@@ -5,3 +5,5 @@ theme: just-the-docs
 nav_order:
   - index.md      # This is the homepage
   - Research.md   # Link to Research page
+  - teaching.md
+  - Notes.md
