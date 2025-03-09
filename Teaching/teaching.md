@@ -18,6 +18,7 @@ I’m also involved in the CUNY Directed Reading Program (DRP), a program which 
 
 Currently, I am mentoring two undergraduates in Numerical Linear Algebra, Low-Rank Approximations, and Perturbation Theory, with a focus on understanding and analyzing the stability of algorithms. 
 
-[View the Norms PDF](norms.md)
+[View the Norms PDF](<iframe src="/norms3.pdf" width="100%" height="800px"></iframe>)
+
 
 [View Notes](https://raw.githubusercontent.com/hajarzaid/hajarzaid.github.io/4ec787b43fe746747182f14a61d10e228283a3f4/Notes.md)
