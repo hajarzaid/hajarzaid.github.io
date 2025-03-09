@@ -1,6 +1,6 @@
 ---
 title: Norms Notes
-permalink: /Teaching/CUNY DRP/
+permalink: 
 layout: default
 ---
 
