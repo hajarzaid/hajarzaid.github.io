@@ -24,3 +24,4 @@ Currently, I am mentoring two undergraduates in Numerical Linear Algebra, Low-Ra
 
 
 
+[Norm PDF](https://github.com/hajarzaid/hajarzaid.github.io/blob/main/norms3.pdf)
