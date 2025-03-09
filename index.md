@@ -15,7 +15,7 @@ Some of my current interests are:
 * Nonlinear Dimensionality Reduction & Manifold Learning
 
 
-I am driven by the fact that many mathematical theories reappear across disciplines, often disguised under different names and that advancements do not always emerge within a single discipline. These theories are highly studied and well understood within mathematics, yet their applications in other fields are not always recognized (see [The Unreasonable Effectiveness of Mathematics in the Natural Sciences](https://www.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf)). The goal for a mathematician is to abstract and uncover these underlying structures, revealing deep connections between seemingly unrelated areas. However, mathematics has often been studied in isolation from its applications—I believe bridging this gap is essential for meaningful progress.
+I am also driven by the fact that many mathematical theories reappear across disciplines, often disguised under different names and that advancements do not always emerge within a single discipline. These theories are highly studied and well understood within mathematics, yet their applications in other fields are not always recognized (see [The Unreasonable Effectiveness of Mathematics in the Natural Sciences](https://www.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf)). The goal for a mathematician is to abstract and uncover these underlying structures, revealing deep connections between seemingly unrelated areas. However, mathematics has often been studied in isolation from its applications—I believe bridging this gap is essential for meaningful progress.
 
 Here are just a few reasons why you should care:
 
