@@ -1,2 +1,2 @@
 # norms.md (file content)
-<embed src="https://raw.githubusercontent.com/hajarzaid/hajarzaid.github.io/7c3091de4a6a0e8f076a0ca2de93543255daa45c/norms3.pdf" type="application/pdf" width="100%" style="height: 80vh;">
+<iframe src="https://raw.githubusercontent.com/hajarzaid/hajarzaid.github.io/4ec787b43fe746747182f14a61d10e228283a3f4/Notes.md" width="100%" height="600px"></iframe>
