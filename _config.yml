@@ -3,6 +3,8 @@ description:
 theme: just-the-docs
 
 nav_order:
-  - index.md   # Or "home.md" if you created it as a separate page
-  - Research.md
-  - Notes.md
+  - index.md      # This is the homepage
+  - Research.md   # Link to Research page
+  - Notes.md      # Link to Notes page
+  - Teaching/     # Folder for Teaching section
+  - CUNY DRP.md   # If this is a file you want to show
