@@ -2,6 +2,6 @@ nav:
   - Home: index.md
   - Research: research.md
   - Teaching:
-      - teaching/teaching.md
+      - Teaching/teaching.md
       - DRP:
           - Norms: teaching/drp/norms.md
