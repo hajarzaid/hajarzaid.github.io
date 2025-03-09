@@ -2,6 +2,7 @@
 title: Research
 permalink: /research/
 layout: home
+order: 2
 
 ---
 ### Icahn School of Medicine, Friedman Brain Institute  
