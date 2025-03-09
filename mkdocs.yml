@@ -3,5 +3,4 @@ nav:
   - Research: research.md
   - Teaching:
       - Teaching/teaching.md
-      - DRP:
-          - Norms: teaching/drp/norms.md
+          - Norms: teaching/norms.md
