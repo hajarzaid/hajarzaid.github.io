@@ -4,4 +4,4 @@ permalink:
 layout: home
 
 ---
-<embed src="norms3.pdf" type="application/pdf" width="100%" height="600px" />
+<iframe src="https://raw.githubusercontent.com/hajarzaid/hajarzaid.github.io/main/norms3.pdf" width="100%" height="800px"></iframe>
