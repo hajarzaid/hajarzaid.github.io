@@ -1,6 +1,8 @@
 ---
 title: Home
 layout: home
+nav_order: 1
+
 ---
 
 Hello, my name is Hajar Zaid. I am a Master's student in Data Science at CUNY Graduate Center, within the Computer Science department. I earned my Bachelor's in Mathematics with a concentration in Pure Mathematics from Queens College. I am driven by a desire to explore, experience, and experiment with divergent ideas that broaden my perspective on research questions and their applications.
