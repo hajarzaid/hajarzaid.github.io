@@ -2,7 +2,6 @@
 title: Norms
 permalink: /norms/
 layout: default
-published: false
 
 ---
 
