@@ -1,6 +1,0 @@
-nav:
-  - Home: index.md
-  - Research: research.md
-  - Teaching:
-      - Teaching/teaching.md
-          - Norms: teaching/norms.md
