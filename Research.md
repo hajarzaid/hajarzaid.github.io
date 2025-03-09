@@ -2,8 +2,7 @@
 title: Research
 permalink: /research/
 layout: home
-order: 1
-
+nav_order: 1
 ---
 ### Icahn School of Medicine, Friedman Brain Institute  
 **Student Researcher** | *July 2024 - Present*  
