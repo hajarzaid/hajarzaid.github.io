@@ -12,6 +12,7 @@ Some of my current interests are:
 * Computational and Theoretical Neuroscience
 * Numerical Linear Algebra and Spectral Theory
 * Generalization and computational limits of AI
+
 (note: list may be updated as I attempt to hone down relevant questions in areas that align with my interests)
 
 I am also driven by the fact that many mathematical theories reappear across disciplines, often disguised under different names and that advancements do not always emerge within a single discipline. These theories are highly studied and well understood within mathematics, yet their applications in other fields are not always recognized (see [The Unreasonable Effectiveness of Mathematics in the Natural Sciences](https://www.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf)). The goal for a mathematician is to abstract and uncover these underlying structures, revealing deep connections between seemingly unrelated areas. However, mathematics has often been studied in isolation from its applications—I believe bridging this gap is essential for meaningful progress.
