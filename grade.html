@@ -138,61 +138,63 @@
 
 
   <script>
-    const sliders = [
-      "exam1", "exam2", "exam3a", "exam3b", "finalExam", "homework",
-      "quiz1", "quiz2", "quiz3", "quiz4", "quiz5"
-    ];
+  const sliders = [
+    "exam1", "exam2", "exam3a", "exam3b", "finalExam", "homework",
+    "quiz1", "quiz2", "quiz3", "quiz4", "quiz5"
+  ];
 
-    function update() {
-      sliders.forEach(id => {
-        const slider = document.getElementById(id);
-        document.getElementById("val_" + id).textContent = slider.value;
-      });
-
-      const e1 = parseFloat(document.getElementById("exam1").value);
-      const e2 = parseFloat(document.getElementById("exam2").value);
-      const e3a = parseFloat(document.getElementById("exam3a").value);
-      const e3b = parseFloat(document.getElementById("exam3b").value);
-      const final = parseFloat(document.getElementById("finalExam").value);
-      const hw = parseFloat(document.getElementById("homework").value);
-      const quizzes = ["quiz1", "quiz2", "quiz3", "quiz4", "quiz5"].map(id =>
-        parseFloat(document.getElementById(id).value)
-      );
-
-      const exam3 = (e3a + e3b) / 2;
-
-      const total =
-        0.17 * e1 +
-        0.17 * e2 +
-        0.17 * exam3 +
-        0.30 * final +
-        0.09 * hw +
-        0.02 * quizzes.reduce((a, b) => a + b, 0);
-
-      let letter = "F";
-      if (final < 50) {
-        letter = "F";
-      } else if (total >= 93) letter = "A";
-      else if (total >= 90) letter = "A-";
-      else if (total >= 87.1) letter = "B+";
-      else if (total >= 83) letter = "B";
-      else if (total >= 80) letter = "B-";
-      else if (total >= 77.1) letter = "C+";
-      else if (total >= 73) letter = "C";
-      else if (total >= 70) letter = "C-";
-      else if (total >= 67.1) letter = "D+";
-      else if (total >= 60) letter = "D";
-
-      document.getElementById("result").textContent =
-        "Final Score: " + total.toFixed(2) + " | Letter Grade: " + letter;
-    }
-
+  function update() {
     sliders.forEach(id => {
-      document.getElementById(id).addEventListener("input", update);
+      const slider = document.getElementById(id);
+      document.getElementById("val_" + id).textContent = slider.value;
     });
 
-    update();
-  </script>
+    const e1 = parseFloat(document.getElementById("exam1").value);
+    const e2 = parseFloat(document.getElementById("exam2").value);
+    const e3a = parseFloat(document.getElementById("exam3a").value);
+    const e3b = parseFloat(document.getElementById("exam3b").value);
+    const final = parseFloat(document.getElementById("finalExam").value);
+    const hw = parseFloat(document.getElementById("homework").value);
+    const quizzes = ["quiz1", "quiz2", "quiz3", "quiz4", "quiz5"].map(id =>
+      parseFloat(document.getElementById(id).value)
+    );
+
+    const exam3 = (e3a + e3b) / 2;
+    const quizAverage = quizzes.reduce((a, b) => a + b, 0) / 5;
+
+    const total =
+      0.17 * e1 +
+      0.17 * e2 +
+      0.17 * exam3 +
+      0.30 * final +
+      0.10 * hw +
+      0.09 * quizAverage;
+
+    let letter = "F";
+    if (final < 50) {
+      letter = "F";
+    } else if (total >= 93) letter = "A";
+    else if (total >= 90) letter = "A-";
+    else if (total >= 87.1) letter = "B+";
+    else if (total >= 83) letter = "B";
+    else if (total >= 80) letter = "B-";
+    else if (total >= 77.1) letter = "C+";
+    else if (total >= 73) letter = "C";
+    else if (total >= 70) letter = "C-";
+    else if (total >= 67.1) letter = "D+";
+    else if (total >= 60) letter = "D";
+
+    document.getElementById("result").textContent =
+      "Final Score: " + total.toFixed(2) + " | Letter Grade: " + letter;
+  }
+
+  sliders.forEach(id => {
+    document.getElementById(id).addEventListener("input", update);
+  });
+
+  update();
+</script>
+
 </body>
 </html>
 
