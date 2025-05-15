@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 40px auto;
+      max-width: 700px;
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .slider-block {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    .output {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Final Grade Calculator</h2>
+
+  <!-- Sliders -->
+  <div class="slider-block"><label>Exam 1 (17%)</label>
+    <input type="range" id="exam1" min="0" max="100" value="80">
+    <span id="val_exam1">80</span>
+  </div>
+
+  <div class="slider-block"><label>Exam 2 (17%)</label>
+    <input type="range" id="exam2" min="0" max="100" value="80">
+    <span id="val_exam2">80</span>
+  </div>
+
+  <div class="slider-block"><label>Exam 3 - Part A (50% of 17%)</label>
+    <input type="range" id="exam3a" min="0" max="100" value="80">
+    <span id="val_exam3a">80</span>
+  </div>
+
+  <div class="slider-block"><label>Exam 3 - Part B (50% of 17%)</label>
+    <input type="range" id="exam3b" min="0" max="100" value="80">
+    <span id="val_exam3b">80</span>
+  </div>
+
+  <div class="slider-block"><label>Final Exam (30%)</label>
+    <input type="range" id="finalExam" min="0" max="100" value="80">
+    <span id="val_finalExam">80</span>
+  </div>
+
+  <div class="slider-block"><label>Homework (9%)</label>
+    <input type="range" id="homework" min="0" max="100" value="90">
+    <span id="val_homework">90</span>
+  </div>
+
+  <!-- 5 Quizzes -->
+  <h3>Quizzes (Each 2%)</h3>
+  <div class="slider-block"><label>Quiz 1</label>
+    <input type="range" id="quiz1" min="0" max="100" value="90">
+    <span id="val_quiz1">90</span>
+  </div>
+  <div class="slider-block"><label>Quiz 2</label>
+    <input type="range" id="quiz2" min="0" max="100" value="90">
+    <span id="val_quiz2">90</span>
+  </div>
+  <div class="slider-block"><label>Quiz 3</label>
+    <input type="range" id="quiz3" min="0" max="100" value="90">
+    <span id="val_quiz3">90</span>
+  </div>
+  <div class="slider-block"><label>Quiz 4</label>
+    <input type="range" id="quiz4" min="0" max="100" value="90">
+    <span id="val_quiz4">90</span>
+  </div>
+  <div class="slider-block"><label>Quiz 5</label>
+    <input type="range" id="quiz5" min="0" max="100" value="90">
+    <span id="val_quiz5">90</span>
+  </div>
+
+  <div class="output" id="result">Final Score: -- | Letter Grade: --</div>
+
+  <script>
+    const sliders = [
+      "exam1", "exam2", "exam3a", "exam3b", "finalExam", "homework",
+      "quiz1", "quiz2", "quiz3", "quiz4", "quiz5"
+    ];
+
+    sliders.forEach(id => {
+      document.getElementById(id).oninput = update;
+    });
+
+    function update() {
+      sliders.forEach(id => {
+        document.getElementById("val_" + id).textContent = document.getElementById(id).value;
+      });
+
+      const e1 = parseFloat(document.getElementById("exam1").value);
+      const e2 = parseFloat(document.getElementById("exam2").value);
+      const e3a = parseFloat(document.getElementById("exam3a").value);
+      const e3b = parseFloat(document.getElementById("exam3b").value);
+      const final = parseFloat(document.getElementById("finalExam").value);
+      const hw = parseFloat(document.getElementById("homework").value);
+      const q = [
+        "quiz1", "quiz2", "quiz3", "quiz4", "quiz5"
+      ].map(id => parseFloat(document.getElementById(id).value));
+
+      const exam3 = (e3a + e3b) / 2;
+
+      // Weights
+      const total =
+        0.17 * e1 +
+        0.17 * e2 +
+        0.17 * exam3 +
+        0.30 * final +
+        0.09 * hw +
+        0.02 * q.reduce((a,b) => a + b, 0);
+
+      let letter = "F";
+      if (final < 50) {
+        letter = "F";
+      } else if (total >= 93) letter = "A";
+      else if (total >= 90) letter = "A-";
+      else if (total >= 87.1) letter = "B+";
+      else if (total >= 83) letter = "B";
+      else if (total >= 80) letter = "B-";
+      else if (total >= 77.1) letter = "C+";
+      else if (total >= 73) letter = "C";
+      else if (total >= 70) letter = "C-";
+      else if (total >= 67.1) letter = "D+";
+      else if (total >= 60) letter = "D";
+
+      document.getElementById("result").textContent =
+        "Final Score: " + total.toFixed(2) + " | Letter Grade: " + letter;
+    }
+
+    update();
+  </script>
+</body>
+</html>
