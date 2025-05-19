@@ -65,7 +65,7 @@ contribute when. The entries $U_{ik}$ tell us how much neuron $i$
 contributes to the $k^\text{th}$ principal axis, but this contribution
 is fixed and does not evolve with time.
 
-## Constructing a Time-Resolved Contribution Basis {#constructing-a-time-resolved-contribution-basis .unnumbered}
+## Constructing a Time-Resolved Contribution Basis
 
 Here I propose a simple but useful idea. We can back-project to trace
 how individual neurons contribute to the expression of a latent
@@ -105,7 +105,7 @@ axes arises from individual neurons over time. Doing so can tell us a
 lot about how neural roles shift during different behavioral epochs or
 internal states, and potentially how information flows across a circuit.
 
-## Why This Matters for Dynamical Systems {#why-this-matters-for-dynamical-systems .unnumbered}
+## Why This Matters for Dynamical Systems 
 
 This idea of tracing neuron contributions over time becomes especially
 important when thinking about neural activity as a dynamical system. In
