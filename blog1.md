@@ -11,7 +11,7 @@ defined by explicit bases, which we can access and analyze. In doing so,
 we can begin to ask which neurons are responsible for shaping these
 low-dimensional dynamics.
 
-## Background {#background .unnumbered}
+## Background
 
 We begin with a data matrix: $$X \in \mathbb{R}^{N \times T}$$ where $N$
 is the number of neurons and $T$ is the number of timepoints.
