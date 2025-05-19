@@ -134,7 +134,7 @@ state. Attractors are usually studied in latent space or inferred from
 global population patterns, but what if we could instead track them
 through the evolving roles of individual neurons?
 
-If we compute the contribution matrix \(C(t)\), where each entry is:
+If we compute the contribution matrix $C(t)$ , where each entry is:
 
 $$C_{ik}(t) = u_{ik} \cdot x_i(t)$$
 
