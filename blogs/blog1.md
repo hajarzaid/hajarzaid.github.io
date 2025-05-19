@@ -134,7 +134,7 @@ with the latent space, can we at least say who is responsible for what?
 Can we trace a latent trajectory back to the neurons driving it, and see
 how those roles change as time unfolds?
 
-## Toward Understanding Attractors in Neural Systems {#toward-understanding-attractors-in-neural-systems .unnumbered}
+## Toward Understanding Attractors in Neural Systems 
 
 One possible application of this approach is in studying attractor
 dynamics, the idea that neural populations may converge toward stable
