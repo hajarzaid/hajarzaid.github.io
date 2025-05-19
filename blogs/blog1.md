@@ -69,7 +69,7 @@ is fixed and does not evolve with time.
 
 ## Constructing a Time-Resolved Contribution Basis
 
-Here I propose a simple but useful idea: we can decompose the expression of a latent trajectory over time to trace how individual neurons contribute to it. Once high-dimensional neural activity is projected into a lower-dimensional space using PCA, we don't need to treat the latent dimensions as abstract summary variables. Each principal component is a linear combination of neurons — and we can quantify how much each neuron contributes to its expression at each moment in time.
+Here I propose a simple but useful idea: we can decompose the expression of a latent trajectory over time to trace how individual neurons contribute to it. Once high-dimensional neural activity is projected into a lower-dimensional space using PCA, we don't need to treat the latent dimensions as abstract summary variables. Each principal component is a linear combination of neurons and we can quantify how much each neuron contributes to its expression at each moment in time.
 
 Suppose we have $N$ neurons and have applied PCA to reduce the activity to $K$ dimensions. Let $x_i(t)$ be the activity of neuron $i$ at time $t$, and let $u_{ik}$ be the loading of neuron $i$ on the $k^\text{th}$ principal component. Then the projection of the full population activity onto PC $k$ is given by:
 
