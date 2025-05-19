@@ -92,6 +92,8 @@ z_k(t) = \sum_i C_{ik}(t)
 $$
 
 In this way, we convert each latent dimension into a temporally evolving pattern of contributions distributed across neurons.
+<img width="1027" alt="Screenshot 2025-05-19 at 10 47 58 AM" src="https://github.com/user-attachments/assets/7d34e55d-0bb9-4c18-b4d9-fdf87ea5e90b" />
+
 
 If desired, we can normalize each $C_{ik}(t)$ by the total projection to get a relative contribution:
 
