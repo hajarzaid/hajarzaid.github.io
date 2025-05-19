@@ -3,12 +3,21 @@ title: "Which Neurons Drive the Latent Space?"
 layout: page
 permalink: /Blogs/blog1/
 ---
-<!-- Enable MathJax -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<!-- BEGIN: MathJax -->
+<div>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
 <script id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-
+</div>
+<!-- END: MathJax -->
 
 This short article is inspired by my experience reading computational
 neuroscience papers. A common strategy for making neural models more
