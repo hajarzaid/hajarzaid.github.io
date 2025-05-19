@@ -92,8 +92,9 @@ z_k(t) = \sum_i C_{ik}(t)
 $$
 
 In this way, we convert each latent dimension into a temporally evolving pattern of contributions distributed across neurons.
-<div style="text-align: center;">
-  <img width="1027" alt="Screenshot 2025-05-19 at 10 47 58 AM" src="https://github.com/user-attachments/assets/7d34e55d-0bb9-4c18-b4d9-fdf87ea5e90b" />
+
+<div style="border: 1px solid #ccc; padding: 1em; margin: 1em auto; max-width: 1027px; text-align: center; background-color: #f9f9f9; border-radius: 8px;">
+  <img width="100%" alt="Screenshot 2025-05-19 at 10 47 58 AM" src="https://github.com/user-attachments/assets/7d34e55d-0bb9-4c18-b4d9-fdf87ea5e90b" />
   <p style="font-style: italic; font-size: 90%; margin-top: 0.5em;">
     Figure: PCA decomposes population activity into latent trajectories. The contribution basis breaks these trajectories down into neuron-specific roles over time.
   </p>
