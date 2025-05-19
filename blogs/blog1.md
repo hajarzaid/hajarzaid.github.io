@@ -173,5 +173,4 @@ basins? Which ones stabilize them? And how does this vary across trials
 or behavioral conditions?
 
 This kind of neuron-level tracing could offer a new lens on what it
-means for a brain region to stabilize, shift, or reverberate \...and it
-all starts from a simple back-projection.
+means for a brain region to stabilize, shift, or reverberate.
