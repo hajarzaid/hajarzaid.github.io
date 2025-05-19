@@ -1,6 +1,7 @@
 ---
 title: "Which Neurons Drive the Latent Space?"
 parent: Blogs
+layout: home
 nav_order: 1
 ---
 
