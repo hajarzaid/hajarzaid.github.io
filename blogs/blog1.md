@@ -1,11 +1,8 @@
 ---
 title: "Which Neurons Drive the Latent Space?"
 parent: Blogs
-layout: page
 nav_order: 1
 ---
-
-
 
 <!-- BEGIN: MathJax -->
 <div>
