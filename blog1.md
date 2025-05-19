@@ -1,3 +1,8 @@
+---
+title: "Which Neurons Drive the Latent Space?"
+layout: page
+permalink: /notes/blog1/
+---
 This short article is inspired by my experience reading computational
 neuroscience papers. A common strategy for making neural models more
 interpretable involves projecting high-dimensional neural activity into
