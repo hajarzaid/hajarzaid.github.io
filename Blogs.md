@@ -6,9 +6,3 @@ permalink: /blogs/
 layout: default
 ---
 
-
-Welcome to the blog section. Select a post from the sidebar.
-
-Or view all:
-
-- [Which Neurons Drive the Latent Space?](/blogs/blog1/)
