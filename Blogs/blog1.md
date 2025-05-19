@@ -66,9 +66,8 @@ to treat the latent variables as black boxes. Each principal component
 is built from a specific combination of neurons, and we can measure how
 much each neuron is driving that component at any given time.
 
-Given the activity of a neuron $x_i(t)$, and its weight in the
-$k^\text{th}$ principal component $u_{ik}$, the contribution of neuron
-$i$ to the expression of PC $k$ at time $t$ is:
+Given the activity of a neuron \( x_i(t) \), and its weight in the \( k^{\text{th}} \) principal component \( u_{ik} \), the contribution of neuron \( i \) to the expression of PC \( k \) at time \( t \) is:
+
 
 $$C_{ik}(t) = u_{ik} \cdot x_i(t)$$
 
