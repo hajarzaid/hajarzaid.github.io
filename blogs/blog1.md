@@ -69,43 +69,40 @@ is fixed and does not evolve with time.
 
 ## Constructing a Time-Resolved Contribution Basis
 
-Here I propose a simple but useful idea. We can back-project to trace
-how individual neurons contribute to the expression of a latent
-trajectory over time. Once we have projected our high-dimensional neural
-activity into a lower-dimensional latent space using PCA, we do not have
-to treat the latent variables as black boxes. Each principal component
-is built from a specific combination of neurons, and we can measure how
-much each neuron is driving that component at any given time.
+Here I propose a simple but useful idea: we can decompose the expression of a latent trajectory over time to trace how individual neurons contribute to it. Once high-dimensional neural activity is projected into a lower-dimensional space using PCA, we don't need to treat the latent dimensions as abstract summary variables. Each principal component is a linear combination of neurons — and we can quantify how much each neuron contributes to its expression at each moment in time.
 
-Given the activity of a neuron $x_i(t)$, and its weight in the $k^{\text{th}}$ principal component $u_{ik}$, the contribution of neuron $i$ to the expression of PC $k$ at time $t$ is:
+Suppose we have $N$ neurons and have applied PCA to reduce the activity to $K$ dimensions. Let $x_i(t)$ be the activity of neuron $i$ at time $t$, and let $u_{ik}$ be the loading of neuron $i$ on the $k^\text{th}$ principal component. Then the projection of the full population activity onto PC $k$ is given by:
 
+$$
+z_k(t) = \sum_{i=1}^N u_{ik} \cdot x_i(t)
+$$
 
-$$C_{ik}(t) = u_{ik} \cdot x_i(t)$$
+This is a time-varying latent signal, often interpreted as a summary of population dynamics.
 
-This gives us a time-resolved measure of how much each neuron is
-influencing a given latent trajectory. Since the full projection onto PC
-$k$ is just the dot product:
+To trace where this latent signal comes from, we define the contribution of neuron $i$ to PC $k$ at time $t$ as:
 
-$$z_k(t) = \sum_i u_{ik} \cdot x_i(t)$$
+$$
+C_{ik}(t) = u_{ik} \cdot x_i(t)
+$$
 
-we can break that sum down into individual neuron contributions. If you
-want to know which neurons are responsible for a shift in the latent
-space at a specific moment, this gives you a direct way to trace it.
+This gives a time-resolved, neuron-specific breakdown of the latent trajectory. At each timepoint, the sum of contributions across all neurons gives back the full projection:
 
-Optionally, you could normalize these contributions:
+$$
+z_k(t) = \sum_i C_{ik}(t)
+$$
 
-$$\text{Relative contribution}_{ik}(t) = \frac{u_{ik} \cdot x_i(t)}{z_k(t)}$$
+In this way, we convert each latent dimension into a temporally evolving pattern of contributions distributed across neurons.
 
-to get a sense of how much each neuron accounts for the total projection
-at each timepoint. Positive and negative contributions can cancel out,
-so the sign matters.
+If desired, we can normalize each $C_{ik}(t)$ by the total projection to get a relative contribution:
 
-This idea feels almost too simple, but I have not seen it presented
-explicitly in the literature. Most papers that use PCA treat the
-components as summary axes, but do not trace how the expression of those
-axes arises from individual neurons over time. Doing so can tell us a
-lot about how neural roles shift during different behavioral epochs or
-internal states, and potentially how information flows across a circuit.
+$$
+\text{RelativeContribution}_{ik}(t) = \frac{C_{ik}(t)}{z_k(t)}
+$$
+
+This expresses the proportion of the latent expression at that moment attributable to a specific neuron. Because principal components can have both positive and negative loadings, the sign of the contribution carries important information and should not be ignored.
+
+Though this idea is simple, I haven’t seen it formalized in the literature. Most PCA-based analyses treat latent variables as static descriptors or behavioral correlates, without asking how the expression of these components arises from the original neural activity. By tracing the time-resolved contributions of individual neurons, we gain a much clearer view of how roles evolve during behavior, and how neural circuits reshape their collective dynamics in real time.
+
 
 ## Why This Matters for Dynamical Systems 
 
