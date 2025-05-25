@@ -1,5 +1,5 @@
 ---
-title: "Learning Without Distortion: Lipschitz Constraints and Structure-Preserving Updates"
+title: "Lipschitz Constraints and Structure-Preserving Updates"
 parent: Blogs
 layout: home
 nav_order: 1
