@@ -153,8 +153,7 @@ stable even when internal activity changes. As they put it:
 
 #### Kaufman et al. (2014).
 
-This geometric view is formalized in their analysis of output-null
-dynamics:
+A paper that has parallels to what I described as "Lipschitz Perserving Paths":
 
 > *\"Formally, any activity changes in output-null dimensions fall in
 > the null space of $W$. Conversely, activity changes in output-potent
@@ -165,7 +164,7 @@ dynamics:
 Several theoretical studies have proposed that consistent readout can be
 maintained if drift occurs in directions orthogonal to coding
 dimensions. This idea is often referred to as drift within a "null
-coding space." As summarized across these works:
+coding space."
 
 > *\"Theoretical work has proposed that a consistent readout of a
 > representation can be achieved if drift in neural activity patterns
