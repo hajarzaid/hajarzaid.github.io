@@ -134,7 +134,7 @@ learning rule doesn't just land on a good decoder. It also implicitly
 defines a manifold of representations that can change without affecting
 function.
 
-## Related Work {#related-work .unnumbered}
+## Related Work
 
 Several papers explore how population codes can shift while outputs
 remain stable. Many of these ideas fit naturally into a Lipschitz-based
