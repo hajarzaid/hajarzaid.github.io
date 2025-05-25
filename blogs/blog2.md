@@ -129,8 +129,8 @@ gives the system a way to reorganize internally while preserving its
 output.
 
 But drift doesn’t have to stay entirely within the null space for stability to hold. If the 
-readout is Lipschitz with a small constant, then even drift in output-potent directions produces 
-only bounded, gradual changes in the output. The key constraint is not where drift occurs, but 
+readout is Lipschitz with a small constant, then even drift in directions that project onto the 
+readout produces only bounded, gradual changes in the output. The key constraint is not where drift occurs, but 
 how much it affects the readout. 
 
 This is not just an abstract constraint. It gives a concrete criterion
