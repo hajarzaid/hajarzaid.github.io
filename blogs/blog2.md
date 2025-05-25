@@ -1,3 +1,26 @@
+---
+title: "Learning Without Distortion: Lipschitz Constraints and Structure-Preserving Updates"
+parent: Blogs
+layout: home
+nav_order: 1
+---
+
+<!-- BEGIN: MathJax -->
+<div>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</div>
+<!-- END: MathJax -->
+
 A function $f : \mathbb{R}^n \to \mathbb{R}^m$ is called Lipschitz
 continuous if there exists a constant $L \geq 0$ such that for any pair
 of inputs $x$ and $y$,
