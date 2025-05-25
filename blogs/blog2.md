@@ -1,0 +1,162 @@
+A function $f : \mathbb{R}^n \to \mathbb{R}^m$ is called Lipschitz
+continuous if there exists a constant $L \geq 0$ such that for any pair
+of inputs $x$ and $y$,
+
+$$\|f(x) - f(y)\| \leq L \|x - y\|.$$
+
+This tells us how sensitive the output is to input changes. The smaller
+the constant, the more stable and smooth the function is. When $L = 1$,
+the function preserves distances at most, without amplifying them.
+
+This condition becomes meaningful when thinking about systems that need
+to stay consistent despite internal variability. It keeps
+representations from getting distorted in a way that breaks their
+functional role.
+
+#### Neural Representations and Stability
+
+Neural codes shift over time. A population that responds to one stimulus
+today might respond differently next week. But even with this drift,
+behavior remains stable. Recognition still works, memory retrieval still
+works, and outputs stay aligned with what they're supposed to mean.
+
+So there must be some property of the readout that absorbs these
+internal changes. If the decoder is Lipschitz, then small shifts in
+neural activity don't get magnified. The output stays consistent because
+the function that maps population activity to behavior is controlled.
+
+This lets us move away from thinking about \"stability\" as \"freezing\"
+representations. Stability might just mean that internal change has to
+follow a trajectory that doesn't throw off the interpretation.
+
+#### Nonlinear Activations and Lipschitz Bounds.
+
+In real neural networks, the readout is often not purely linear.
+Nonlinearities like ReLU, tanh, or sigmoid are applied at each layer.
+These functions have known Lipschitz constants. For example, ReLU and
+tanh are both 1-Lipschitz, while sigmoid has a maximum slope of 0.25.
+When composing functions, the overall Lipschitz constant is at most the
+product of the constants at each layer. So if each weight matrix and
+activation respects a bound, the network as a whole remains Lipschitz.
+This matters when trying to guarantee that the system remains stable
+even as representations move through nonlinear transformations. The idea
+is not to eliminate distortion entirely, but to control it. This also
+has neat implications for the spectral properties of the system, but
+that's probably better saved for another post.
+
+#### Implications for Learning
+
+If stable output relies on Lipschitz continuity, then learning can't
+just be about minimizing error. It also has to make sure the solution
+generalizes in the right way under noise or drift.
+
+This means that a good learning rule won't just push weights around to
+match the data. It'll also shape the function so that the outputs don't
+overreact to small changes in input. Implicitly, it biases toward
+smoother solutions.
+
+In biological terms, a rule that prefers small, local updates is more
+likely to preserve structure. The system learns a mapping, but it also
+learns a constraint on how that mapping should behave.
+
+#### Oja's Rule and Structure-Preserving Learning
+
+Oja's rule is a clean example of this idea. It's a normalized Hebbian
+update:
+
+$$\Delta w = \eta\, y (x - y w),$$
+
+where $x$ is the input, $y = w^\top x$, and $\eta$ is a learning rate.
+This update prevents runaway growth in the weights and keeps them
+aligned with the direction of maximum variance in the data.
+
+Over time, the weight vector converges to a unit vector:
+
+$$\lim_{t \to \infty} \|w(t)\| = 1,$$
+
+so the readout $f(x) = w^\top x$ has Lipschitz constant at most 1. That
+means:
+
+$$\|f(x) - f(y)\| \leq \|x - y\|.$$
+
+This is an example where a local synaptic rule naturally produces a
+globally stable function.
+
+#### Lipschitz-Preserving Paths
+
+The Lipschitz condition doesn't just apply to the decoder. It also
+constrains how the population activity is allowed to move over time.
+
+Let $x(t)$ be a trajectory of neural activity. If the readout $f(x(t))$
+is Lipschitz in time, then:
+
+$$\|f(x(t_1)) - f(x(t_2))\| \leq L \|x(t_1) - x(t_2)\|.$$
+
+This means the output changes gradually as the internal representation
+changes. The system can evolve without jumping unpredictably.
+
+If the drift happens entirely within the null space of the decoder,
+then:
+
+$$f(x(t)) = f(x(t_0)) \quad \text{for all } t \text{ such that } x(t) - x(t_0) \in \ker(f).$$
+
+So the output doesn't change at all. The brain can repurpose activity in
+ways that are invisible to the readout. In this sense, the null space
+gives the system a way to reorganize internally while preserving its
+output.
+
+This is not just an abstract constraint. It gives a concrete criterion
+for what kinds of paths through neural space are \"safe.\" A good
+learning rule doesn't just land on a good decoder. It also implicitly
+defines a manifold of representations that can change without affecting
+function.
+
+## Related Work {#related-work .unnumbered}
+
+Several papers explore how population codes can shift while outputs
+remain stable. Many of these ideas fit naturally into a Lipschitz-based
+framing.
+
+#### Feulner and Clopath (2021).
+
+They show that drift in recurrent networks with short-term plasticity
+tends to lie in the null space of the decoder. This keeps performance
+stable even when internal activity changes. As they put it:
+
+> *\"Our findings give a new perspective, showing that recurrent weight
+> changes do not necessarily lead to change in the neural manifold. On
+> the contrary, successful learning is naturally constrained to a common
+> subspace.\"*
+
+#### Kaufman et al. (2014).
+
+This geometric view is formalized in their analysis of output-null
+dynamics:
+
+> *\"Formally, any activity changes in output-null dimensions fall in
+> the null space of $W$. Conversely, activity changes in output-potent
+> dimensions fall in the row space of $W$.\"*
+
+#### Rokni et al. (2007), Druckmann and Chklovskii (2012), Ajemian et al. (2013), and Singh et al. (2019).
+
+Several theoretical studies have proposed that consistent readout can be
+maintained if drift occurs in directions orthogonal to coding
+dimensions. This idea is often referred to as drift within a "null
+coding space." As summarized across these works:
+
+> *\"Theoretical work has proposed that a consistent readout of a
+> representation can be achieved if drift in neural activity patterns
+> occurs in dimensions of population activity that are orthogonal to
+> coding dimensions --- in a 'null coding space' (Rokni et al., 2007;
+> Druckmann and Chklovskii, 2012; Ajemian et al., 2013; Singh et al.,
+> 2019). This can be facilitated by neural representations that consist
+> of low-dimensional dynamics distributed over many neurons \...
+> Redundancy could therefore permit substantial reconfiguration of
+> tuning in single cells without disrupting neural codes (Druckmann and
+> Chklovskii, 2012).\"*
+
+All of these point to the same conclusion. Stability doesn't require
+fixing the code. It requires that change respects some structural
+constraint. The idea here is to make that constraint explicit using
+Lipschitz continuity, and to use it to reason about what learning is
+really doing.
