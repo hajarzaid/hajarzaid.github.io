@@ -182,6 +182,18 @@ coding space."
 > tuning in single cells without disrupting neural codes (Druckmann and
 > Chklovskii, 2012).\"*
 
+
+The paper goes on to say that :
+> *\"We show that drift is systematically constrained far above chance, facilitating a linear weighted readout of behavioral >variables."\"*
+
+and 
+
+> *“Drift is systematically constrained, such that a simple linear readout can extract task information from the population at any given time, and modest plasticity can compensate for the component of drift that does affect the coding dimensions.”\"*
+
+
+This means that outside of the the null space where neural activity drifts, the changes are not arbitrary or highly erratic; instead, they are bounded and structured so that a simple, smooth (i.e., low-Lipschitz) linear decoder can still extract task-relevant information reliably.
+
+
 All of these point to the same conclusion. Stability doesn't require
 fixing the code. It requires that change respects some structural
 constraint. The idea here is to make that constraint explicit using
