@@ -36,7 +36,7 @@ to stay consistent despite internal variability. It keeps
 representations from getting distorted in a way that breaks their
 functional role.
 
-#### Neural Representations and Stability
+### Neural Representations and Stability
 
 Neural codes shift over time. A population that responds to one stimulus
 today might respond differently next week. But even with this drift,
@@ -52,7 +52,7 @@ This lets us move away from thinking about \"stability\" as \"freezing\"
 representations. Stability might just mean that internal change has to
 follow a trajectory that doesn't throw off the interpretation.
 
-#### Nonlinear Activations and Lipschitz Bounds.
+### Nonlinear Activations and Lipschitz Bounds.
 
 In real neural networks, the readout is often not purely linear.
 Nonlinearities like ReLU, tanh, or sigmoid are applied at each layer.
@@ -61,28 +61,26 @@ tanh are both 1-Lipschitz, while sigmoid has a maximum slope of 0.25.
 When composing functions, the overall Lipschitz constant is at most the
 product of the constants at each layer. So if each weight matrix and
 activation respects a bound, the network as a whole remains Lipschitz.
-This matters when trying to guarantee that the system remains stable
+This matters for guaranteeing that the system remains stable
 even as representations move through nonlinear transformations. The idea
 is not to eliminate distortion entirely, but to control it. This also
 has neat implications for the spectral properties of the system, but
-that's probably better saved for another post.
+that's better saved for another post.
 
-#### Implications for Learning
+### Implications for Learning
+If output stability depends on Lipschitz continuity, then learning isn’t just about reducing error, 
+it’s also about preserving structure as the system adapts. It must also ensure that the solution generalizes 
+appropriately under conditions of noise or representational drift.
 
-If stable output relies on Lipschitz continuity, then learning can't
-just be about minimizing error. It also has to make sure the solution
-generalizes in the right way under noise or drift.
-
-This means that a good learning rule won't just push weights around to
-match the data. It'll also shape the function so that the outputs don't
-overreact to small changes in input. Implicitly, it biases toward
-smoother solutions.
+A good learning rule doesn’t just adjust weights to fit the data. It shapes the function so that small 
+changes in input lead to controlled changes in output. In doing so, it implicitly favors solutions 
+that are smooth and stable.
 
 In biological terms, a rule that prefers small, local updates is more
 likely to preserve structure. The system learns a mapping, but it also
 learns a constraint on how that mapping should behave.
 
-#### Oja's Rule and Structure-Preserving Learning
+### Oja's Rule and Structure-Preserving Learning
 
 Oja's rule is a clean example of this idea. It's a normalized Hebbian
 update:
@@ -105,29 +103,26 @@ $$\|f(x) - f(y)\| \leq \|x - y\|.$$
 This is an example where a local synaptic rule naturally produces a
 globally stable function.
 
-#### Lipschitz-Preserving Paths
+### Lipschitz-Preserving Paths
 
-The Lipschitz condition doesn't just apply to the decoder. It also
-constrains how the population activity is allowed to move over time.
 
-Let $x(t)$ be a trajectory of neural activity. If the readout $f(x(t))$
-is Lipschitz in time, then:
+The Lipschitz condition applies not only to the decoder, but also constrains how neural activity is allowed to evolve over time.
 
-$$\|f(x(t_1)) - f(x(t_2))\| \leq L \|x(t_1) - x(t_2)\|.$$
+Let \( x(t) \) represent a trajectory of population activity, and let \( f \) be a readout function with Lipschitz constant \( L \). Then for any times \( t_1, t_2 \):
 
-This means the output changes gradually as the internal representation
-changes. The system can evolve without jumping unpredictably.
+\[
+\|f(x(t_1)) - f(x(t_2))\| \leq L \|x(t_1) - x(t_2)\|.
+\]
 
-If the drift happens entirely within the null space of the decoder,
-then:
+This inequality ensures that the output changes continuously as the internal representation shifts. The system can adapt or drift, but the impact on the readout remains bounded and predictable.
 
-$$f(x(t)) = f(x(t_0)) \quad \text{for all } t \text{ such that } x(t) - x(t_0) \in \ker(f).$$
+In the special case where the drift lies entirely within the null space of the decoder:
 
-So the output doesn't change at all. The brain can repurpose activity in
-ways that are invisible to the readout. In this sense, the null space
-gives the system a way to reorganize internally while preserving its
-output.
+\[
+x(t) - x(t_0) \in \ker(f) \quad \Rightarrow \quad f(x(t)) = f(x(t_0)).
+\]
 
+Here, the output remains unchanged despite changes in the internal code. The null space of the readout defines directions in representation space along which the system can reorganize without affecting its output. This provides a flexible mechanism for internal adaptation while preserving function.
 But drift doesn’t have to stay entirely within the null space for stability to hold. If the 
 readout is Lipschitz with a small constant, then even drift in directions that project onto the 
 readout produces only bounded, gradual changes in the output. The key constraint is not where drift occurs, but 
