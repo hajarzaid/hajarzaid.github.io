@@ -108,19 +108,19 @@ globally stable function.
 
 The Lipschitz condition applies not only to the decoder, but also constrains how neural activity is allowed to evolve over time.
 
-Let \( x(t) \) represent a trajectory of population activity, and let \( f \) be a readout function with Lipschitz constant \( L \). Then for any times \( t_1, t_2 \):
+Let $ x(t)$ represent a trajectory of population activity, and let $f$ be a readout function with Lipschitz constant $ L $. Then for any times $ t_1, t_2 $:
 
-\[
+$$
 \|f(x(t_1)) - f(x(t_2))\| \leq L \|x(t_1) - x(t_2)\|.
-\]
+$$
 
 This inequality ensures that the output changes continuously as the internal representation shifts. The system can adapt or drift, but the impact on the readout remains bounded and predictable.
 
 In the special case where the drift lies entirely within the null space of the decoder:
 
-\[
+$$
 x(t) - x(t_0) \in \ker(f) \quad \Rightarrow \quad f(x(t)) = f(x(t_0)).
-\]
+$$
 
 Here, the output remains unchanged despite changes in the internal code. The null space of the readout defines directions in representation space along which the system can reorganize without affecting its output. This provides a flexible mechanism for internal adaptation while preserving function.
 But drift doesn’t have to stay entirely within the null space for stability to hold. If the 
