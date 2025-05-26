@@ -37,20 +37,17 @@ representations from becoming distorted in a way that breaks their
 functional role.
 
 ### Neural Representations and Stability
+Neural codes evolve over time. A population of neurons that responds to a particular stimulus 
+today might respond differently a week from now. Despite this ongoing drift in activity patterns, 
+behavior remains stable. Recognition continues to work, memory retrieval remains accurate, and 
+behavioral outputs still correspond to the correct meanings.
 
-Neural codes shift over time. A population that responds to one stimulus
-today might respond differently next week. But even with this drift,
-behavior remains stable. Recognition still works, memory retrieval still
-works, and outputs stay aligned with what they're supposed to mean.
+This stability implies that some property of the readout compensates for internal changes in the neural code. 
+If the decoder is Lipschitz continuous, then small changes in population activity lead to proportionally 
+small changes in the output. In other words, the mapping from neural activity to behavior is bounded and controlled.
 
-So there must be some property of the readout that absorbs these
-internal changes. If the decoder is Lipschitz, then small shifts in
-neural activity don't get magnified. The output stays consistent because
-the function that maps population activity to behavior is controlled.
-
-This lets us move away from thinking about \"stability\" as \"freezing\"
-representations. Stability might just mean that internal change has to
-follow a trajectory that doesn't throw off the interpretation.
+This perspective shifts the meaning of stability. It does not require that neural representations remain fixed. 
+Instead, it requires that their evolution follows trajectories that preserve the structure necessary for consistent interpretation.
 
 ### Nonlinear Activations and Lipschitz Bounds.
 
