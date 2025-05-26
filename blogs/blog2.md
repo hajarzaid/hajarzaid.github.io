@@ -164,6 +164,16 @@ They show that in recurrent networks with short-term plasticity, drift tends to 
 In other words, activity can reorganize internally, but only within directions that do not influence the readout. The constraint is geometric, not static.
 
 ---
+#### Stringer et al. (2019)
+
+The geometry of population responses in mouse visual cortex was shown to follow a power-law structure: the variance of the $n$th principal component scaled as $1/n$. This decay rate was not inherited from the stimulus, but reflected an internal constraint on the population code itself. It was proven that if the variance spectrum decayed any more slowly, the code would no longer be smooth. Small changes in input could dominate the entire population response.
+
+> *"We proved mathematically that if the variance spectrum decayed any slower, the population code could not be smooth, allowing small changes in input to dominate population activity."*
+
+This imposes a Lipschitz-like constraint on the population as a whole. Coding smoothness is not just a desirable feature. It is a necessary condition for stability. The system can remain high-dimensional, but only if the geometry of the code suppresses sensitivity to small perturbations.
+
+---
+
 
 #### Kaufman et al. (2014)
 
