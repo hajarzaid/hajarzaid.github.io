@@ -74,7 +74,7 @@ $$
 \|W_i\|_2 = \sigma_{\max}(W_i).
 $$
 
-If each weight matrix $W_i$ satisfies $\|W_i\|_2$ 
+If each weight matrix $W_i$ satisfies $\|W_i\| \leq$ 
 
 
 $$
