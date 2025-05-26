@@ -74,7 +74,7 @@ $$
 \|W_i\|_2 = \sigma_{\max}(W_i).
 $$
 
-If each weight matrix $W_i$ satisfies $\lVert W_i \rVert \leq \lambda_i$ 
+If each weight matrix $W_i$ satisfies $\lVert W_i \rVert \leq \lambda_i$ and each activation function $\phi_i$ is $L_{\phi_i}$-Lipschitz, then the total Lipschitz constant of the network is bounded above by:
 
 
 $$
