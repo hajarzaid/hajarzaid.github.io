@@ -160,31 +160,31 @@ framing.
 
 #### Feulner and Clopath (2021)
 
-They show that in recurrent networks with short-term plasticity, drift tends to lie in the null space of the decoder. This helps keep performance stable even as internal activity changes. As they put it:
+They show that in recurrent networks with short-term plasticity, drift tends to align with the null space of the decoder. This keeps the output stable even as internal activity shifts. As they write:
 
 > *"Our findings give a new perspective, showing that recurrent weight changes do not necessarily lead to change in the neural manifold. On the contrary, successful learning is naturally constrained to a common subspace."*
 
-So the code can shift, but only along directions that do not mess with the output. That is the kind of constraint I am trying to make more explicit here.
+In other words, activity can reorganize internally, but only within directions that do not influence the readout. The constraint is geometric, not static.
 
 ---
 
 #### Kaufman et al. (2014)
 
-This paper formalizes something very close to what I called a Lipschitz-preserving path. They break up neural activity changes into two components:
+This paper formalizes an idea closely related to what I described as Lipschitz-preserving paths. They decompose neural activity into directions that do or do not affect the output:
 
 > *"Formally, any activity changes in output-null dimensions fall in the null space of $W$. Conversely, activity changes in output-potent dimensions fall in the row space of $W$."*
 
-So again, the idea is that the system can move around internally, but it has to do so in a way that does not spill into the directions that affect behavior. The row space is where it gets risky.
+The system is free to move in directions that are invisible to the decoder. But movement along directions that project onto the readout must be carefully controlled. Those are the directions where changes actually show up downstream.
 
 ---
 
 #### Rokni et al. (2007), Druckmann and Chklovskii (2012), Ajemian et al. (2013), Singh et al. (2019)
 
-A lot of theoretical work has pointed to this same structure. Drift can happen, but as long as it stays in dimensions orthogonal to coding dimensions, the readout still works. This has been called drift in a "null coding space":
+Several theoretical studies have converged on the idea that stable readout is possible if drift occurs in dimensions orthogonal to coding dimensions. This is often described as drift within a “null coding space”:
 
 > *"Theoretical work has proposed that a consistent readout of a representation can be achieved if drift in neural activity patterns occurs in dimensions of population activity that are orthogonal to coding dimensions — in a 'null coding space' (Rokni et al., 2007; Druckmann and Chklovskii, 2012; Ajemian et al., 2013; Singh et al., 2019). This can be facilitated by neural representations that consist of low-dimensional dynamics distributed over many neurons... Redundancy could therefore permit substantial reconfiguration of tuning in single cells without disrupting neural codes (Druckmann and Chklovskii, 2012)."*
 
-Then later they go further and say:
+They go further:
 
 > *"We show that drift is systematically constrained far above chance, facilitating a linear weighted readout of behavioral variables."*
 
@@ -192,9 +192,8 @@ and
 
 > *"Drift is systematically constrained, such that a simple linear readout can extract task information from the population at any given time, and modest plasticity can compensate for the component of drift that does affect the coding dimensions."*
 
-So even when drift is not in the null space, it is not chaotic. The changes are still bounded and structured, and the readout can keep working because the distortion is under control. That sounds a lot like saying the system is Lipschitz.
+So even when drift touches the dimensions the decoder cares about, it does not behave randomly. The changes are structured and bounded. The readout still works because the distortion is limited. That is essentially a Lipschitz condition.
 
 ---
 
-All of these papers are pointing at the same idea. Stability does not require freezing the neural code. It just requires that change happens along specific directions or within certain bounds. What I am trying to do here is show that Lipschitz continuity captures that kind of structure cleanly, and gives us a way to reason about what a good learning rule actually has to preserve.
-
+Together, these studies point to a shared conclusion. Stability does not require freezing the code. It requires that change respects a geometric constraint. What I am proposing is to make that constraint explicit in terms of Lipschitz continuity, and to use it to understand what learning must preserve as representations evolve.
