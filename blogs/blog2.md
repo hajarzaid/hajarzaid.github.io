@@ -50,19 +50,35 @@ This perspective shifts the meaning of stability. It does not require that neura
 Instead, it requires that their evolution follows trajectories that preserve the structure necessary for consistent interpretation.
 
 ### Nonlinear Activations and Lipschitz Bounds.
+In biological and artificial neural networks, the readout from neural activity is rarely a simple linear projection. Instead, the system typically involves multiple layers of nonlinear transformations. Each layer consists of an affine transformation followed by a nonlinearity such as ReLU, tanh, or sigmoid.
 
-In real neural networks, the readout is often not purely linear.
-Nonlinearities like ReLU, tanh, or sigmoid are applied at each layer.
-These functions have known Lipschitz constants. For example, ReLU and
-tanh are both 1-Lipschitz, while sigmoid has a maximum slope of 0.25.
-When composing functions, the overall Lipschitz constant is at most the
-product of the constants at each layer. So if each weight matrix and
-activation respects a bound, the network as a whole remains Lipschitz.
-This matters for guaranteeing that the system remains stable
-even as representations move through nonlinear transformations. The idea
-is not to eliminate distortion entirely, but to control it. This also
-has neat implications for the spectral properties of the system, but
-that's better saved for another post.
+These nonlinearities have well-characterized Lipschitz constants, which bound how much the function can stretch distances. Formally, a function $f: \mathbb{R}^n \to \mathbb{R}^m$ is Lipschitz continuous with constant $L$ if
+
+$$
+\|f(x) - f(y)\| \leq L \|x - y\| \quad \text{for all } x, y \in \mathbb{R}^n.
+$$
+
+This condition ensures that changes in the input produce proportionally bounded changes in the output.
+
+For example, the ReLU function, defined as $f(x) = \max(0, x)$, is 1-Lipschitz with respect to the Euclidean norm. The tanh function is also 1-Lipschitz since its derivative is bounded above by 1. The sigmoid function has a maximum derivative of one-fourth, which makes it 0.25-Lipschitz.
+
+Suppose a neural network is composed of layers $f_1, f_2, \dots, f_k$, each with Lipschitz constant $L_i$. Then the composite function $f = f_k \circ \cdots \circ f_1$ satisfies the inequality
+
+$$
+\|f(x) - f(y)\| \leq \left(\prod_{i=1}^k L_i\right) \|x - y\|.
+$$
+
+In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix is given by its operator norm, which is the largest singular value $\|W_i\|_2 = \sigma_{\max}(W_i)$. If each weight matrix $W_i$ satisfies $\|W_i\|_2 \leq \lambda_i$, and the activation function $\phi_i$ is $L_{\phi_i}$-Lipschitz, then the total Lipschitz constant of the network is bounded above by
+
+$$
+L_{\text{network}} \leq \prod_{i=1}^k \left( \lambda_i \cdot L_{\phi_i} \right).
+$$
+
+This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz-bounded readout guarantees that these internal shifts do not lead to disproportionate changes in the output. The system remains stable because it prevents small variations in internal states from being amplified unpredictably.
+
+Importantly, the goal is not to eliminate distortion entirely. The key is to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
+
+Furthermore, Lipschitz continuity has implications for the spectral properties of the system, including robustness and generalization behavior. These connections are especially important in theoretical analyses of both deep learning and population coding in neuroscience, and merit further exploration in a future discussion.
 
 ### Implications for Learning
 If output stability depends on Lipschitz continuity, then learning isn’t just about reducing error, 
