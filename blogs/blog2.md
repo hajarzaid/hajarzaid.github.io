@@ -68,7 +68,18 @@ $$
 \|f(x) - f(y)\| \leq \left(\prod_{i=1}^k L_i\right) \|x - y\|.
 $$
 
-In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix is given by its operator norm, which is the largest singular value $\|W_i\|_2$ $=\sigma_{\max}(W_i)$. If each weight matrix $W_i$ satisfies $\|W_i\|_2 \leq \lambda_i$, and the activation function $\phi_i$ is $L_{\phi_i}$-Lipschitz, then the total Lipschitz constant of the network is bounded above by
+In most practical settings, each layer of a neural network consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix is given by its operator norm, which equals its largest singular value:
+
+$$
+\|W_i\|_2 = \sigma_{\max}(W_i).
+$$
+
+If each weight matrix $W_i$ satisfies $\|W_i\|_2 \leq \lambda_i$, and each activation function $\phi_i$ is $L_{\phi_i}$-Lipschitz, then the total Lipschitz constant of the entire network is bounded above by
+
+$$
+L_{\text{network}} \leq \prod_{i=1}^k \left( \lambda_i \cdot L_{\phi_i} \right).
+$$
+
 
 $$
 L_{\text{network}} \leq \prod_{i=1}^k \left( \lambda_i \cdot L_{\phi_i} \right).
@@ -76,7 +87,7 @@ $$
 
 This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz-bounded readout guarantees that these internal shifts do not lead to disproportionate changes in the output. The system remains stable because it prevents small variations in internal states from being amplified unpredictably.
 
-Importantly, the goal is not to eliminate distortion entirely. The key is to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
+The goal is not to eliminate distortion entirely. The key is to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
 
 Furthermore, Lipschitz continuity has implications for the spectral properties of the system, including robustness and generalization behavior. These connections are especially important in theoretical analyses of both deep learning and population coding in neuroscience, and merit further exploration in a future discussion.
 
@@ -97,7 +108,7 @@ $$
 \Delta w = \eta\, y (x - y w),
 $$
 
-where $x$ is the input, $y = w^\top x$ is the output, and $\eta$ is a learning rate. This rule prevents runaway growth in the weights and gradually aligns them with the direction of maximum variance in the data.
+where $x$ is the input, $y = w^\top x$ is the output, and $\eta$ is a learning rate. This rule prevents unbounded growth in the weights and gradually aligns them with the direction of maximum variance in the data.
 
 Over time, the weight vector converges to a unit vector:
 
