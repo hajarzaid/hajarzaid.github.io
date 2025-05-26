@@ -68,7 +68,7 @@ $$
 \|f(x) - f(y)\| \leq \left(\prod_{i=1}^k L_i\right) \|x - y\|.
 $$
 
-In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix is given by its operator norm, which is the largest singular value $\|W_i\|_2 = \sigma_{\max}(W_i)$. If each weight matrix $W_i$ satisfies $\|W_i\|_2 \leq \lambda_i$, and the activation function $\phi_i$ is $L_{\phi_i}$-Lipschitz, then the total Lipschitz constant of the network is bounded above by
+In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix is given by its operator norm, which is the largest singular value $\|W_i\|_2$ $=\sigma_{\max}(W_i)$. If each weight matrix $W_i$ satisfies $\|W_i\|_2 \leq \lambda_i$, and the activation function $\phi_i$ is $L_{\phi_i}$-Lipschitz, then the total Lipschitz constant of the network is bounded above by
 
 $$
 L_{\text{network}} \leq \prod_{i=1}^k \left( \lambda_i \cdot L_{\phi_i} \right).
