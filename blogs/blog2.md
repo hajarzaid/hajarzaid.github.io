@@ -33,7 +33,7 @@ the function preserves distances at most, without amplifying them.
 
 This condition becomes meaningful when thinking about systems that need
 to stay consistent despite internal variability. It keeps
-representations from getting distorted in a way that breaks their
+representations from becoming distorted in a way that breaks their
 functional role.
 
 ### Neural Representations and Stability
