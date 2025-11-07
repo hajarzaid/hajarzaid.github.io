@@ -52,17 +52,18 @@ Examples of activation constants
 
 Suppose a neural network is composed of layers $f_1, f_2, \dots, f_k$, each with Lipschitz constant $L_i$. Then the composite $f = f_k \circ \cdots \circ f_1$ satisfies
 $$
-\|f(x) - f(y)\| \le \Big(\prod_{i=1}^k L_i\Big)\,\|x-y\|
+\lVert f(x) - f(y) \rVert \le \Big(\prod_{i=1}^k L_i\Big)\,\lVert x - y \rVert
 $$
+
 In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix with respect to $\ell_2$ is its operator norm, that is its largest singular value
 $$
-\|W_i\|_2 = \sigma_{\max}(W_i)
+\lVert W_i \rVert_2 = \sigma_{\max}(W_i)
 $$
-If $\|W_i\|_2 \le s_i$ and each activation $\phi_i$ is $L_{\phi_i}$-Lipschitz, then
+If $\lVert W_i \rVert_2 \le s_i$ and each activation $\phi_i$ is $L_{\phi_i}$-Lipschitz, then
 $$
-L_{\text{network}} \le \prod_{i=1}^k \big(s_i\, L_{\phi_i}\big)
+L_{\text{network}} \le \prod_{i=1}^k \big(s_i\,L_{\phi_i}\big)
 $$
-while the exact global constant remains $L=\sup_x\|J_f(x)\|_2$. This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz bounded readout guarantees that internal shifts do not lead to disproportionate changes in the output. The goal is not to eliminate distortion entirely, but to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
+while the exact global constant remains $L=\sup_x \lVert J_f(x) \rVert_2$. This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz bounded readout guarantees that internal shifts do not lead to disproportionate changes in the output. The goal is not to eliminate distortion entirely, but to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
 
 For classification this interfaces naturally with margin. If the class margin is $\gamma$ and $f$ is $L$-Lipschitz, any input drift of size less than $\gamma/L$ preserves the label. For geometry preservation or invertibility one often needs a bi Lipschitz condition on the data manifold.
 
