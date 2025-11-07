@@ -44,9 +44,11 @@ $$
 and standard layerwise bounds give a convenient, though sometimes loose, upper bound for deep networks.
 
 Examples of activation constants
+
 - ReLU $r(x)=\max(0,x)$ is 1-Lipschitz, the Jacobian is a diagonal projector
-- $\tanh$ is 1-Lipschitz since $|\tanh'(x)|\le 1$
-- Sigmoid $\sigma(x)=(1+e^{-x})^{-1}$ is $0.25$-Lipschitz since $\max |\sigma'(x)|=1/4$. In $\mathbb{R}^n$ the Jacobian is diagonal with entries at most $1/4$, so $\|J\|_2\le 1/4$
+- $\tanh$ is 1-Lipschitz since $\lvert \tanh'(x)\rvert \le 1$
+- Sigmoid $\sigma(x)=(1+e^{-x})^{-1}$ is $0.25$-Lipschitz since $\max_x \lvert \sigma'(x)\rvert = 1/4$. In $\mathbb{R}^n$ the Jacobian is diagonal with entries at most $1/4$, so $\lVert J\rVert_2 \le 1/4$
+
 
 Suppose a neural network is composed of layers $f_1, f_2, \dots, f_k$, each with Lipschitz constant $L_i$. Then the composite $f = f_k \circ \cdots \circ f_1$ satisfies
 $$
