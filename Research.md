@@ -10,15 +10,16 @@ nav_order: 2
 **Theory (Jul 2024–Aug 2025)**. Co-authored a theory paper using random-matrix and concentration-of-measure tools to study how high-dimensional population codes evolve while preserving core geometric structure. The work formalizes conditions under which large-scale representational structure remains stable despite neuron-level turnover and specifies testable signatures of organized drift.
 
 **Current collaboration (Aug 2025 - Present)** In collaboration with the Denise Cai lab, I am the leading the computational analysis of longitudinal CA1 miniscope recordings in mice, with aligned neurons and synchronized behavior across about 20 sessions. The project asks, at the level of population geometry:
-*What remains invariant across days and contexts in spatial memory representations?
 
-*What changes, and in what form, for example structured transformations versus wholesale reorganization?
+* What remains invariant across days and contexts in spatial memory representations?
 
-*On what timescales do these changes unfold?
+* What changes, and in what form, for example structured transformations versus wholesale reorganization?
 
-*What aspects of function are preserved across sessions, for example place-relevant structure?
+* On what timescales do these changes unfold?
 
-*How compact is the organizing structure, meaning whether a small set of latent factors accounts for most variability? And many more questions.
+* What aspects of function are preserved across sessions, for example place-relevant structure?
+
+* How compact is the organizing structure, meaning whether a small set of latent factors accounts for most variability? And many more questions.
 
 
 
