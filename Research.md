@@ -6,7 +6,21 @@ nav_order: 2
 ---
 ### Icahn School of Medicine, Friedman Brain Institute  
 **Student Researcher** | *July 2024 - Present*  
-Exploring memory representational drift in the olfactory system using random matrix theory, concentration of measure, and optimization techniques under Dr. Evan Schaffer. Developed theoretical models to simulate neural dynamics and the evolution of memory representations over time. Applied advanced mathematical and statistical methods to analyze high-dimensional systems, aiming to deepen the understanding of sensory processing, memory consolidation, and neural plasticity, with potential applications in both neuroscience and AI.
+
+**Theory (Jul 2024–Aug 2025)**. Co-authored a theory paper using random-matrix and concentration-of-measure tools to study how high-dimensional population codes evolve while preserving core geometric structure. The work formalizes conditions under which large-scale representational structure remains stable despite neuron-level turnover and specifies testable signatures of organized drift.
+
+**Current collaboration (Aug 2025 - Present)** In collaboration with the Denise Cai lab, I am the leading the computational analysis of longitudinal CA1 miniscope recordings in mice, with aligned neurons and synchronized behavior across about 20 sessions. The project asks, at the level of population geometry:
+*What remains invariant across days and contexts in spatial memory representations?
+
+*What changes, and in what form, for example structured transformations versus wholesale reorganization?
+
+*On what timescales do these changes unfold?
+
+*What aspects of function are preserved across sessions, for example place-relevant structure?
+
+*How compact is the organizing structure, meaning whether a small set of latent factors accounts for most variability? And many more questions.
+
+
 
 ### New York University, Courant Institute of Mathematical Sciences  
 **Student Researcher** | *May 2024 - Jan 2025*  
