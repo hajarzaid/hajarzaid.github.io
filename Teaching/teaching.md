@@ -10,7 +10,7 @@ I have taught mathematics across multiple campuses within the CUNY system:
 
 **Baruch College** – Mathematics Lecturer (Fall 2024, Spring 2025, Fall 2025)
 
-**Queensborough Community College** – Mathematics Lecturer (Spring 2025, Fall 2025)
+**Queensborough Community College** – Mathematics and Computer Science Lecturer (Spring 2025, Fall 2025)
 
 **Hunter College** – Mathematics Tutor (Spring 2024, Fall 2024, Spring 2025, Fall 2025)
 
