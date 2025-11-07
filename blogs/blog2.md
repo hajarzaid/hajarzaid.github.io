@@ -21,186 +21,102 @@ nav_order: 1
 </div>
 <!-- END: MathJax -->
 
-A function $f : \mathbb{R}^n \to \mathbb{R}^m$ is called Lipschitz
-continuous if there exists a constant $L \geq 0$ such that for any pair
-of inputs $x$ and $y$,
-
-$$\|f(x) - f(y)\| \leq L \|x - y\|.$$
-
-This tells us how sensitive the output is to input changes. The smaller
-the constant, the more stable and smooth the function is. When $L = 1$,
-the function preserves distances at most, without amplifying them.
-
-This condition becomes meaningful when thinking about systems that need
-to stay consistent despite internal variability. It keeps
-representations from becoming distorted in a way that breaks their
-functional role.
+A function $f : \mathbb{R}^n \to \mathbb{R}^m$ is called Lipschitz continuous if there exists a constant $L \ge 0$ such that for any pair of inputs $x$ and $y$,
+$$
+\|f(x) - f(y)\| \le L \,\|x - y\|
+$$
+Unless stated otherwise, $\|\cdot\|$ denotes the Euclidean norm $\ell_2$. This tells us how sensitive the output is to input changes. The smaller the constant, the more stable and smooth the function is. When $L = 1$, the function is **non expansive**. It never increases distances, though it need not be an isometry. This condition becomes meaningful when thinking about systems that need to stay consistent despite internal variability. It keeps representations from becoming distorted in a way that breaks their functional role.
 
 ### Neural Representations and Stability
-Neural codes evolve over time. A population of neurons that responds to a particular stimulus 
-today might respond differently a week from now. Despite this ongoing drift in activity patterns, 
-behavior remains stable. Recognition continues to work, memory retrieval remains accurate, and 
-behavioral outputs still correspond to the correct meanings.
+Neural codes evolve over time. A population of neurons that responds to a particular stimulus today might respond differently a week from now. Despite this ongoing drift in activity patterns, behavior remains stable. Recognition continues to work, memory retrieval remains accurate, and behavioral outputs still correspond to the correct meanings. This stability implies that some property of the readout compensates for internal changes in the neural code. If the decoder is Lipschitz continuous, then small changes in population activity lead to proportionally small changes in the output. In other words, the mapping from neural activity to behavior is bounded and controlled. This perspective shifts the meaning of stability. It does not require that neural representations remain fixed. Instead, it requires that their evolution follows trajectories that preserve the structure necessary for consistent interpretation.
 
-This stability implies that some property of the readout compensates for internal changes in the neural code. 
-If the decoder is Lipschitz continuous, then small changes in population activity lead to proportionally 
-small changes in the output. In other words, the mapping from neural activity to behavior is bounded and controlled.
+### Nonlinear Activations and Lipschitz Bounds
+In biological and artificial neural networks, the readout from neural activity is rarely a simple linear projection. Instead, the system typically involves multiple layers of nonlinear transformations. Each layer consists of an affine transformation followed by a nonlinearity such as ReLU, tanh, or sigmoid. These nonlinearities have well characterized Lipschitz constants with respect to $\ell_2$ that bound how much the function can stretch distances.
 
-This perspective shifts the meaning of stability. It does not require that neural representations remain fixed. 
-Instead, it requires that their evolution follows trajectories that preserve the structure necessary for consistent interpretation.
-
-### Nonlinear Activations and Lipschitz Bounds.
-In biological and artificial neural networks, the readout from neural activity is rarely a simple linear projection. Instead, the system typically involves multiple layers of nonlinear transformations. Each layer consists of an affine transformation followed by a nonlinearity such as ReLU, tanh, or sigmoid.
-
-These nonlinearities have well-characterized Lipschitz constants, which bound how much the function can stretch distances. Formally, a function $f: \mathbb{R}^n \to \mathbb{R}^m$ is Lipschitz continuous with constant $L$ if
-
+Formally, $f: \mathbb{R}^n \to \mathbb{R}^m$ is $L$-Lipschitz if
 $$
-\|f(x) - f(y)\| \leq L \|x - y\| \quad \text{for all } x, y \in \mathbb{R}^n.
+\|f(x) - f(y)\| \le L \|x - y\| \quad \text{for all } x, y \in \mathbb{R}^n
 $$
-
-This condition ensures that changes in the input produce proportionally bounded changes in the output.
-
-For example, the ReLU function, defined as $f(x) = \max(0, x)$, is 1-Lipschitz with respect to the Euclidean norm. The tanh function is also 1-Lipschitz since its derivative is bounded above by 1. The sigmoid function has a maximum derivative of one-fourth, which makes it 0.25-Lipschitz.
-
-Suppose a neural network is composed of layers $f_1, f_2, \dots, f_k$, each with Lipschitz constant $L_i$. Then the composite function $f = f_k \circ \cdots \circ f_1$ satisfies the inequality
-
+Equivalently, by the mean value inequality,
 $$
-\|f(x) - f(y)\| \leq \left(\prod_{i=1}^k L_i\right) \|x - y\|.
+L \;=\; \sup_{x}\,\|J_f(x)\|_2
 $$
+and standard layerwise bounds give a convenient, though sometimes loose, upper bound for deep networks.
 
-In most practical settings, each layer of a neural network consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix is given by its operator norm, which equals its largest singular value:
+Examples of activation constants
+- ReLU $r(x)=\max(0,x)$ is 1-Lipschitz, the Jacobian is a diagonal projector
+- $\tanh$ is 1-Lipschitz since $|\tanh'(x)|\le 1$
+- Sigmoid $\sigma(x)=(1+e^{-x})^{-1}$ is $0.25$-Lipschitz since $\max |\sigma'(x)|=1/4$. In $\mathbb{R}^n$ the Jacobian is diagonal with entries at most $1/4$, so $\|J\|_2\le 1/4$
 
+Suppose a neural network is composed of layers $f_1, f_2, \dots, f_k$, each with Lipschitz constant $L_i$. Then the composite $f = f_k \circ \cdots \circ f_1$ satisfies
 $$
-\|W_i\|_2 = \sigma_{\max}(W_i).
+\|f(x) - f(y)\| \le \Big(\prod_{i=1}^k L_i\Big)\,\|x-y\|
 $$
-
-If each weight matrix $W_i$ satisfies $\lVert W_i \rVert_2 \leq s_i$, where $s_i$ is an upper bound on the largest singular value of $W_i$, and each activation function $\phi_i$ is $L_{\phi_i}$-Lipschitz, then the total Lipschitz constant of the network is bounded above by:
-
+In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix with respect to $\ell_2$ is its operator norm, that is its largest singular value
 $$
-L_{\text{network}} \leq \prod_{i=1}^k \left( s_i \cdot L_{\phi_i} \right).
+\|W_i\|_2 = \sigma_{\max}(W_i)
 $$
+If $\|W_i\|_2 \le s_i$ and each activation $\phi_i$ is $L_{\phi_i}$-Lipschitz, then
+$$
+L_{\text{network}} \le \prod_{i=1}^k \big(s_i\, L_{\phi_i}\big)
+$$
+while the exact global constant remains $L=\sup_x\|J_f(x)\|_2$. This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz bounded readout guarantees that internal shifts do not lead to disproportionate changes in the output. The goal is not to eliminate distortion entirely, but to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
 
-
-
-This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz-bounded readout guarantees that these internal shifts do not lead to disproportionate changes in the output. The system remains stable because it prevents small variations in internal states from being amplified unpredictably.
-
-The goal is not to eliminate distortion entirely. The key is to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
-
-Furthermore, Lipschitz continuity has implications for the spectral properties of the system, including robustness and generalization behavior. These connections are especially important in theoretical analyses of both deep learning and population coding in neuroscience, and merit further exploration in a future discussion.
+For classification this interfaces naturally with margin. If the class margin is $\gamma$ and $f$ is $L$-Lipschitz, any input drift of size less than $\gamma/L$ preserves the label. For geometry preservation or invertibility one often needs a bi Lipschitz condition on the data manifold.
 
 ### Implications for Learning
-If output stability depends on Lipschitz continuity, then learning is not only about minimizing error. It is also about preserving structure as the system adapts. A model must learn not just to fit the data, but to generalize well under conditions of noise, drift, or perturbation in the input space.
+If output stability depends on Lipschitz continuity, then learning is not only about minimizing error. It is also about preserving structure as the system adapts. A model must learn not just to fit the data, but to generalize well under conditions of noise, drift, or perturbation in the input space. In deep learning theory, Lipschitz continuity has been used as a constraint that promotes generalization. For example, regularizing the spectral norm of weight matrices effectively controls an upper bound on the network Lipschitz constant and can reduce overfitting and improve robustness. Methods like spectral normalization and Parseval or orthogonal approaches are concrete mechanisms.
 
-In deep learning theory, Lipschitz continuity has been studied as a constraint that promotes generalization. For example, regularizing the spectral norm of weight matrices can effectively control the Lipschitz constant of a network. This has been shown to reduce overfitting and improve robustness to adversarial inputs, as seen in works by Yoshida and Miyato (2017) and Cisse et al. (2017). In the context of neural tangent kernel (NTK) theory , smoother functions with lower effective Lipschitz constants often exhibit better generalization performance.
+In neural tangent kernel analyses, generalization is controlled by the kernel induced function norm. Lipschitz constraints correlate with smoother and more robust functions, but they are not a substitute for that norm.
 
-A good learning rule does more than adjust weights to reduce loss. It implicitly shapes the class of functions the model can represent, favoring those where small changes in input lead to controlled and predictable changes in output. This smoothness helps ensure that the system remains stable and interpretable even as it adapts.
+In biological systems, learning rules that emphasize small and local updates, such as Hebbian learning or Oja's rule, are more likely to preserve the structure of the population code. These rules not only help the system learn a mapping from input to output, they also constrain how that mapping is allowed to behave over time, supporting both flexibility and consistency in representation.
 
-In biological systems, learning rules that emphasize small and local updates, such as Hebbian learning or Oja's rule, are more likely to preserve the structure of the population code. These rules not only help the system learn a mapping from input to output. They also impose a constraint on how that mapping is allowed to behave over time, supporting both flexibility and consistency in representation.
-
-### Oja's Rule and Structure-Preserving Learning
-
-Oja's rule is a clean example of this principle. It is a normalized Hebbian update:
-
+### Oja's Rule and Structure Preserving Learning
+Oja's rule is a clean example of this principle. It is a normalized Hebbian update
 $$
-\Delta w = \eta\, y (x - y w),
+\Delta w = \eta\, y \,(x - y\, w)
 $$
-
-where $x$ is the input, $y = w^\top x$ is the output, and $\eta$ is a learning rate. This rule prevents unbounded growth in the weights and gradually aligns them with the direction of maximum variance in the data.
-
-Over time, the weight vector converges to a unit vector:
-
+where $x$ is the input, $y = w^\top x$ is the output, and $\eta$ is a learning rate. Under standard assumptions that include stationary inputs with finite covariance and a small enough learning rate, this rule prevents unbounded growth in the weights and gradually aligns them with the direction of maximum variance in the data. Over time, the weight vector converges to unit norm
 $$
-\lim_{t \to \infty} \|w(t)\| = 1,
+\lim_{t \to \infty} \|w(t)\| = 1
 $$
-
-so the readout function $f(x) = w^\top x$ becomes 1-Lipschitz:
-
+so the readout $f(x) = w^\top x$ is 1-Lipschitz
 $$
-\|f(x) - f(y)\| \leq \|x - y\|.
+\|f(x) - f(y)\| \le \|x - y\|
 $$
+This means the output changes smoothly and predictably as the input changes. Even as the system modifies its weights in response to new input, it maintains a bound on how much the output can shift.
 
-This means the output changes smoothly and predictably as the input changes, which is exactly the type of behavior needed to preserve interpretability under internal updates. Even as the system modifies its weights in response to new input, it maintains a bound on how much the output can shift.
-
-In this way, a simple local synaptic rule gives rise to a globally stable function. The rule does not merely extract a useful mapping from input to output. It also imposes a constraint on how that mapping is allowed to evolve.
-
-
-### Lipschitz-Preserving Paths
-
-
-The Lipschitz condition applies not only to the decoder itself, but also places a constraint on how neural activity is allowed to evolve over time.
-
-Let $x(t)$ denote a trajectory of population activity, and let $f$ be a readout function with Lipschitz constant $L$. Then for any two time points $t_1$ and $t_2$:
-
+### Lipschitz Preserving Paths
+The Lipschitz condition applies not only to the decoder itself. It also constrains how neural activity is allowed to evolve over time. Let $x(t)$ denote a trajectory of population activity, and let $f$ be a readout with Lipschitz constant $L$. Then for any two times $t_1$ and $t_2$
 $$
-\|f(x(t_1)) - f(x(t_2))\| \leq L \|x(t_1) - x(t_2)\|.
+\|f(x(t_1)) - f(x(t_2))\| \le L\, \|x(t_1) - x(t_2)\|
 $$
-
-This inequality ensures that the output changes smoothly and predictably as the internal representation shifts. The system can drift or adapt over time, but the effect on the output remains bounded and controlled.
-
-In the special case where the drift lies entirely within the null space of the decoder, we have:
-
+More generally, if $x$ is differentiable
 $$
-x(t) - x(t_0) \in \ker(f) \quad \Rightarrow \quad f(x(t)) = f(x(t_0)).
+\|f(x(T)) - f(x(0))\| \le \int_{0}^{T} \|J_f(x(t))\|_2\,\|\dot x(t)\|\,dt
 $$
+so localized expansions, that is large $\|J_f\|$, and the path speed both contribute. In the special case where the drift lies instantaneously within the decoder output null directions
+$$
+\dot x(t) \in \ker J_f\big(x(t)\big) \quad \Rightarrow \quad \tfrac{d}{dt} f\big(x(t)\big) = 0
+$$
+and along such segments the output remains exactly the same despite changes in the internal code. For nonlinear readouts this null versus potent language is Jacobian based. For linear readouts it reduces to the usual null space versus row space picture. Drift need not remain strictly in null directions to preserve stability. If the readout is Lipschitz with a small constant, then even drift that partially projects onto output potent directions will produce only bounded and gradual changes.
 
-In this scenario, the output remains exactly the same despite changes in the internal code. The null space of the readout defines directions in neural space along which the system is free to reorganize without altering function. 
+### Related Work
+Several papers explore how population codes can shift while outputs remain stable. Many of these ideas fit naturally into a Lipschitz based framing.
 
-However, drift does not need to remain strictly within the null space in order to preserve stability. If the readout is Lipschitz with a small constant, then even drift in directions that partially project onto the readout space will result in only gradual, bounded changes in the output. The key constraint is not the location of the drift, but the magnitude of its impact on the readout.
+#### Feulner and Clopath 2021
+They show that in recurrent networks with short term plasticity, drift tends to align with the null space of the decoder, which maintains stable readout even as internal activity shifts
+> "Our findings give a new perspective, showing that recurrent weight changes do not necessarily lead to change in the neural manifold. On the contrary, successful learning is naturally constrained to a common subspace."
 
-This condition provides more than a mathematical bound. It defines a geometric criterion for which paths through neural space are safe to follow. A good learning rule not only converge to an effective decoder but it also implicitly shapes the structure of the representation space, defining a manifold along which the system can move without disrupting function.
+#### Stringer et al. 2019
+The geometry of population responses in mouse visual cortex follows a power law variance spectrum. If it decayed much more slowly, the code would lose smoothness and small input changes could dominate population activity. This effectively imposes a Lipschitz like smoothness constraint on the code.
 
-## Related Work
+#### Kaufman et al. 2014
+They decompose neural activity into output null and output potent components for linear readouts
+> "Formally, any activity changes in output null dimensions fall in the null space of $W$. Conversely, activity changes in output potent dimensions fall in the row space of $W$."
+For nonlinear decoders, the instantaneous generalization is via $\ker J_f(x)$ and $\mathrm{Im}\,J_f(x)^\top$.
 
-Several papers explore how population codes can shift while outputs
-remain stable. Many of these ideas fit naturally into a Lipschitz-based
-framing.
+#### Rokni et al. 2007, Druckmann and Chklovskii 2012, Ajemian et al. 2013, Singh et al. 2019
+A consistent readout is possible if drift occurs in dimensions orthogonal to coding dimensions, the so called null coding space. Redundancy and low dimensional structure that is distributed over many neurons allow substantial single cell reconfiguration without disrupting the code. Drift that touches coding dimensions tends to be structured and bounded so that a simple readout and modest plasticity can compensate.
 
-#### Feulner and Clopath (2021)
-
-They show that in recurrent networks with short-term plasticity, drift tends to align with the null space of the decoder. This keeps the output stable even as internal activity shifts. As they write:
-
-> *"Our findings give a new perspective, showing that recurrent weight changes do not necessarily lead to change in the neural manifold. On the contrary, successful learning is naturally constrained to a common subspace."*
-
-In other words, activity can reorganize internally, but only within directions that do not influence the readout. The constraint is geometric, not static.
-
----
-#### Stringer et al. (2019)
-
-The geometry of population responses in mouse visual cortex was shown to follow a power-law structure: the variance of the $n$th principal component scaled as $1/n$. This decay rate was not inherited from the stimulus, but reflected an internal constraint on the population code itself. It was proven that if the variance spectrum decayed any more slowly, the code would no longer be smooth. Small changes in input could dominate the entire population response.
-
-> *"We proved mathematically that if the variance spectrum decayed any slower, the population code could not be smooth, allowing small changes in input to dominate population activity."*
-
-This imposes a Lipschitz-like constraint on the population as a whole. Coding smoothness is not just a desirable feature. It is a necessary condition for stability. The system can remain high-dimensional, but only if the geometry of the code suppresses sensitivity to small perturbations.
-
----
-
-
-#### Kaufman et al. (2014)
-
-This paper formalizes an idea closely related to what I described as Lipschitz-preserving paths. They decompose neural activity into directions that do or do not affect the output:
-
-> *"Formally, any activity changes in output-null dimensions fall in the null space of $W$. Conversely, activity changes in output-potent dimensions fall in the row space of $W$."*
-
-The system is free to move in directions that are invisible to the decoder. But movement along directions that project onto the readout must be carefully controlled. Those are the directions where changes actually show up downstream.
-
----
-
-#### Rokni et al. (2007), Druckmann and Chklovskii (2012), Ajemian et al. (2013), Singh et al. (2019)
-
-Several theoretical studies have converged on the idea that stable readout is possible if drift occurs in dimensions orthogonal to coding dimensions. This is often described as drift within a “null coding space”:
-
-> *"Theoretical work has proposed that a consistent readout of a representation can be achieved if drift in neural activity patterns occurs in dimensions of population activity that are orthogonal to coding dimensions — in a 'null coding space' (Rokni et al., 2007; Druckmann and Chklovskii, 2012; Ajemian et al., 2013; Singh et al., 2019). This can be facilitated by neural representations that consist of low-dimensional dynamics distributed over many neurons... Redundancy could therefore permit substantial reconfiguration of tuning in single cells without disrupting neural codes (Druckmann and Chklovskii, 2012)."*
-
-They go further:
-
-> *"We show that drift is systematically constrained far above chance, facilitating a linear weighted readout of behavioral variables."*
-
-and
-
-> *"Drift is systematically constrained, such that a simple linear readout can extract task information from the population at any given time, and modest plasticity can compensate for the component of drift that does affect the coding dimensions."*
-
-So even when drift touches the dimensions the decoder cares about, it does not behave randomly. The changes are structured and bounded. The readout still works because the distortion is limited. That is essentially a Lipschitz condition.
-
----
-
-Together, these studies point to a shared conclusion. Stability does not require freezing the code. It requires that change respects a geometric constraint. What I am proposing is to make that constraint explicit in terms of Lipschitz continuity, and to use it to understand what learning must preserve as representations evolve.
+Together, these studies point to a shared conclusion. Stability does not require freezing the code. It requires that change respects a geometric constraint. Making that constraint explicit in Lipschitz terms helps clarify what learning must preserve as representations evolve.
