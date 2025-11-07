@@ -55,15 +55,13 @@ $$
 \lVert f(x) - f(y) \rVert \le \Big(\prod_{i=1}^k L_i\Big)\,\lVert x - y \rVert
 $$
 
-In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix with respect to $\ell_2$ is its operator norm, that is its largest singular value
+In most practical settings, each layer consists of a weight matrix followed by a nonlinearity. The Lipschitz constant of a weight matrix with respect to $\ell_2$ is its operator norm, that is, its largest singular value $\lVert W_i\rVert_2 = \sigma_{\max}(W_i)$. If $\lVert W_i\rVert_2 \le s_i$ and each activation $\phi_i$ is $L_{\phi_i}$-Lipschitz, then
+
 $$
-\lVert W_i \rVert_2 = \sigma_{\max}(W_i)
+L_{\text{network}} \le \prod_{i=1}^k \big(s_i\,L_{\phi_i}\big),
 $$
-If $\lVert W_i \rVert_2 \le s_i$ and each activation $\phi_i$ is $L_{\phi_i}$-Lipschitz, then
-$$
-L_{\text{network}} \le \prod_{i=1}^k \big(s_i\,L_{\phi_i}\big)
-$$
-while the exact global constant remains $L=\sup_x \lVert J_f(x) \rVert_2$. This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz bounded readout guarantees that internal shifts do not lead to disproportionate changes in the output. The goal is not to eliminate distortion entirely, but to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
+
+while the exact global constant remains $L=\sup_x \lVert J_f(x)\rVert_2$. This upper bound is significant for understanding how networks handle representational drift. When neural activity evolves over time, whether through synaptic changes or adaptation, a Lipschitz-bounded readout guarantees that internal shifts do not lead to disproportionate changes in the output. The goal is not to eliminate distortion entirely, but to regulate it. A Lipschitz condition ensures that nearby representations in neural space remain nearby in behavioral output space. This preserves interpretability and consistency over time.
 
 For classification this interfaces naturally with margin. If the class margin is $\gamma$ and $f$ is $L$-Lipschitz, any input drift of size less than $\gamma/L$ preserves the label. For geometry preservation or invertibility one often needs a bi Lipschitz condition on the data manifold.
 
@@ -76,32 +74,44 @@ In biological systems, learning rules that emphasize small and local updates, su
 
 ### Oja's Rule and Structure Preserving Learning
 Oja's rule is a clean example of this principle. It is a normalized Hebbian update
+
 $$
 \Delta w = \eta\, y \,(x - y\, w)
 $$
+
 where $x$ is the input, $y = w^\top x$ is the output, and $\eta$ is a learning rate. Under standard assumptions that include stationary inputs with finite covariance and a small enough learning rate, this rule prevents unbounded growth in the weights and gradually aligns them with the direction of maximum variance in the data. Over time, the weight vector converges to unit norm
+
 $$
 \lim_{t \to \infty} \|w(t)\| = 1
 $$
+
 so the readout $f(x) = w^\top x$ is 1-Lipschitz
+
 $$
 \|f(x) - f(y)\| \le \|x - y\|
 $$
+
 This means the output changes smoothly and predictably as the input changes. Even as the system modifies its weights in response to new input, it maintains a bound on how much the output can shift.
 
 ### Lipschitz Preserving Paths
 The Lipschitz condition applies not only to the decoder itself. It also constrains how neural activity is allowed to evolve over time. Let $x(t)$ denote a trajectory of population activity, and let $f$ be a readout with Lipschitz constant $L$. Then for any two times $t_1$ and $t_2$
+
 $$
 \|f(x(t_1)) - f(x(t_2))\| \le L\, \|x(t_1) - x(t_2)\|
 $$
+
 More generally, if $x$ is differentiable
+
 $$
 \|f(x(T)) - f(x(0))\| \le \int_{0}^{T} \|J_f(x(t))\|_2\,\|\dot x(t)\|\,dt
 $$
+
 so localized expansions, that is large $\|J_f\|$, and the path speed both contribute. In the special case where the drift lies instantaneously within the decoder output null directions
+
 $$
 \dot x(t) \in \ker J_f\big(x(t)\big) \quad \Rightarrow \quad \tfrac{d}{dt} f\big(x(t)\big) = 0
 $$
+
 and along such segments the output remains exactly the same despite changes in the internal code. For nonlinear readouts this null versus potent language is Jacobian based. For linear readouts it reduces to the usual null space versus row space picture. Drift need not remain strictly in null directions to preserve stability. If the readout is Lipschitz with a small constant, then even drift that partially projects onto output potent directions will produce only bounded and gradual changes.
 
 ### Related Work
@@ -117,6 +127,7 @@ The geometry of population responses in mouse visual cortex follows a power law 
 #### Kaufman et al. 2014
 They decompose neural activity into output null and output potent components for linear readouts
 > "Formally, any activity changes in output null dimensions fall in the null space of $W$. Conversely, activity changes in output potent dimensions fall in the row space of $W$."
+
 For nonlinear decoders, the instantaneous generalization is via $\ker J_f(x)$ and $\mathrm{Im}\,J_f(x)^\top$.
 
 #### Rokni et al. 2007, Druckmann and Chklovskii 2012, Ajemian et al. 2013, Singh et al. 2019
