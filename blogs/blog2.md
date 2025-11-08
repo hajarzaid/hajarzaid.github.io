@@ -128,9 +128,6 @@ The geometry of population responses in mouse visual cortex follows a power law 
 They decompose neural activity into output null and output potent components for linear readouts
 > "Formally, any activity changes in output null dimensions fall in the null space of $W$. Conversely, activity changes in output potent dimensions fall in the row space of $W$."
 
-For nonlinear decoders, the instantaneous generalization is via $\ker J_f(x)$ and $\mathrm{Im}\,J_f(x)^\top$.
-
-#### Rokni et al. 2007, Druckmann and Chklovskii 2012, Ajemian et al. 2013, Singh et al. 2019
 A consistent readout is possible if drift occurs in dimensions orthogonal to coding dimensions, the so called null coding space. Redundancy and low dimensional structure that is distributed over many neurons allow substantial single cell reconfiguration without disrupting the code. Drift that touches coding dimensions tends to be structured and bounded so that a simple readout and modest plasticity can compensate.
 
 Together, these studies point to a shared conclusion. Stability does not require freezing the code. It requires that change respects a geometric constraint. Making that constraint explicit in Lipschitz terms helps clarify what learning must preserve as representations evolve.
