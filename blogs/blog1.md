@@ -119,33 +119,12 @@ This expresses the proportion of the latent expression at that moment attributab
 Though this idea is simple, I haven’t seen it formalized in the literature. Most PCA-based analyses treat latent variables as static descriptors or behavioral correlates, without asking how the expression of these components arises from the original neural activity. By tracing the time-resolved contributions of individual neurons, we gain a much clearer view of how roles evolve during behavior, and how neural circuits reshape their collective dynamics in real time.
 
 
-## Why This Matters for Dynamical Systems 
-
 This idea of tracing neuron contributions over time becomes especially
 important when thinking about neural activity as a dynamical system. In
 that framing, we are not just looking at neural activity as a static
 cloud of points. We are watching how population activity moves through
 state space. We care about trajectories, flows, and the directions the
 system bends into over time.
-
-At one point, I tried to dive into this directly using real neural data
-from the Allen Brain Observatory. I was interested in how signals might
-propagate through a population, especially during natural movie stimuli.
-The idea was to iteratively estimate the Jacobian, the local
-linearization of the system, and use it to infer how activity at time
-$t$ influenced activity at time $t+1$. But I quickly ran into a wall.
-The Jacobians were huge, noisy, and nearly impossible to interpret. Even
-when I applied dimensionality reduction, I could not figure out how to
-relate the compressed trajectories back to specific neurons. I ended up
-with abstract dynamics that I could not pin to anything biologically
-meaningful.
-
-That failure made me step back and rethink the entire pipeline. I
-realized I was trying to read the system's behavior before I had
-identified its parts. That led me to this much simpler idea: if we start
-with the latent space, can we at least say who is responsible for what?
-Can we trace a latent trajectory back to the neurons driving it, and see
-how those roles change as time unfolds?
 
 ## Toward Understanding Attractors in Neural Systems 
 
@@ -187,5 +166,5 @@ means we can now ask: which neurons initiate transitions into attractor
 basins? Which ones stabilize them? And how does this vary across trials
 or behavioral conditions?
 
-This kind of neuron-level tracing could offer a new lens on what it
+This kind of neuron-level tracing could offer a lens on what it
 means for a brain region to stabilize, shift, or reverberate.
