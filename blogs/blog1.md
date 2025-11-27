@@ -21,6 +21,9 @@ nav_order: 1
 </div>
 <!-- END: MathJax -->
 
+Date: December 2025
+Update note November 26, 2026: Rereading this, I realize this is terribly written, rudimentary, and clearly has been implemented in many papers but I am choosing to keep this up as evidence of growth :P
+
 This short article is inspired by my experience reading computational
 neuroscience papers. A common strategy for making neural models more
 interpretable involves projecting high-dimensional neural activity into
