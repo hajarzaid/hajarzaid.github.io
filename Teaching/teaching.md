@@ -21,7 +21,7 @@ I have taught mathematics across multiple campuses within the CUNY system:
 
 **Queensborough Community College** – Mathematics and Computer Science Lecturer (Spring 2025, Fall 2025)
 
-**Hunter College** – Mathematics Tutor (Spring 2024, Fall 2024, Spring 2025, Fall 2025)
+**Hunter College** – Mathematics Tutor (Spring 2024, Fall 2024, Spring 2025, Fall 2025, Spring 2026)
 
 In addition to teaching, I am an organizer and graduate mentor for the CUNY Directed Reading Program (DRP), a nationwide initiative originally founded at the University of Chicago to support independent reading projects between undergraduates and graduate students in mathematics and related fields.
 
