@@ -29,6 +29,6 @@ In addition to teaching, I am an organizer and graduate mentor for the CUNY Dire
 **SPRING 2025**: [Exploring Ill-Conditioned Problems & Low-Rank Approximations: A Geometric Perspective on Stability & Efficiency](https://drive.google.com/file/d/1heSgPaRobFUTDdntfMF2OwMprhAj9nSI/view) with Angelo Vitalino and Jeremy Paulino
 
 
-To see my proposed SPRING 2026 projects, [click here](https://sites.google.com/view/cunydrp/for-students/apply). 
+**SPRING 2026 **, [Mathematics of Neural Networks][(https://sites.google.com/view/cunydrp/for-students/apply)](https://drive.google.com/file/d/1IT6l-0HyBuTicCP6JcAPj4dhG23TO5rH/view). 
 
 
